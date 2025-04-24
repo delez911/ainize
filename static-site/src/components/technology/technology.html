@@ -155,21 +155,13 @@
           <h3 class="tech-card-title">系统架构示意图</h3>
           <div class="tech-card-content">
             <div class="architecture-diagram">
-              <div class="diagram-layer">
                 <span class="layer-name">区块链层</span>
                 <span class="layer-arrow">⇆</span>
-              </div>
-              <div class="diagram-layer">
                 <span class="layer-name">Agent 协议</span>
                 <span class="layer-arrow">⇆</span>
-              </div>
-              <div class="diagram-layer">
                 <span class="layer-name">AI 模型层</span>
                 <span class="layer-arrow">⇆</span>
-              </div>
-              <div class="diagram-layer">
                 <span class="layer-name">前端 UI</span>
-              </div>
             </div>
           </div>
         </div>
@@ -254,9 +246,11 @@
   margin-bottom: 1rem;
   color: #666;
 }
-
+.architecture {
+  grid-column: span 2; /* 跨两列 */
+}
 .architecture-diagram {
-  display: flex;
+  display: block;
   flex-direction: column;
   align-items: center;
   gap: 1rem;

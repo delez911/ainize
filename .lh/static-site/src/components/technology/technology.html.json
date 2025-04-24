@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 4,
+            "activePatchIndex": 13,
             "patches": [
                 {
                     "date": 1745460301674,
@@ -24,6 +24,42 @@
                 {
                     "date": 1745488812716,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,8 +35,59 @@\n             </ul>\n           </div>\n         </div>\n \n+        <!-- 技术实施路径 -->\n+        <div class=\"tech-card implementation\">\n+          <h3 class=\"tech-card-title\">技术实施路径</h3>\n+          <div class=\"tech-card-content\">\n+            <div class=\"implementation-section\">\n+              <h4 class=\"implementation-subtitle\">区块链底层</h4>\n+              <ul class=\"tech-list\">\n+                <li class=\"tech-item\">\n+                  <span class=\"tech-icon\">🏗️</span>\n+                  <strong>模块化架构</strong>\n+                  <ul class=\"tech-sublist\">\n+                    <li>共识层：PoSA共识算法</li>\n+                    <li>数据层：改进型Merkle树</li>\n+                    <li>合约层：WASM虚拟机</li>\n+                  </ul>\n+                </li>\n+                <li class=\"tech-item\">\n+                  <span class=\"tech-icon\">⚡</span>\n+                  <strong>性能指标</strong>\n+                  <ul class=\"tech-sublist\">\n+                    <li>TPS ≥ 5000</li>\n+                    <li>交易确认时间 &lt; 3秒</li>\n+                    <li>兼容EVM/Solidity生态</li>\n+                  </ul>\n+                </li>\n+              </ul>\n+            </div>\n+            <div class=\"implementation-section\">\n+              <h4 class=\"implementation-subtitle\">AI中台建设</h4>\n+              <ul class=\"tech-list\">\n+                <li class=\"tech-item\">\n+                  <span class=\"tech-icon\">🧠</span>\n+                  <strong>大模型底座</strong>\n+                  <ul class=\"tech-sublist\">\n+                    <li>集成DeepSeek（推理成本为GPT-4的1/10）</li>\n+                    <li>自主训练行业模型</li>\n+                  </ul>\n+                </li>\n+                <li class=\"tech-item\">\n+                  <span class=\"tech-icon\">🎨</span>\n+                  <strong>多模态引擎</strong>\n+                  <ul class=\"tech-sublist\">\n+                    <li>支持语音/图像/视频交互</li>\n+                    <li>链上存证确保生成内容可追溯</li>\n+                  </ul>\n+                </li>\n+              </ul>\n+            </div>\n+          </div>\n+        </div>\n+\n         <!-- 硅工Card系统 -->\n         <div class=\"tech-card\">\n           <h3 class=\"tech-card-title\">硅工Card系统</h3>\n           <div class=\"tech-card-content\">\n@@ -162,9 +213,9 @@\n }\n \n .tech-item {\n   display: flex;\n-  align-items: center;\n+  align-items: flex-start;\n   margin-bottom: 1rem;\n   padding: 0.5rem;\n   border-radius: 8px;\n   background: #f8f9fa;\n@@ -172,10 +223,34 @@\n \n .tech-icon {\n   margin-right: 1rem;\n   font-size: 1.2rem;\n+  flex-shrink: 0;\n }\n \n+.tech-sublist {\n+  list-style: none;\n+  padding-left: 1rem;\n+  margin-top: 0.5rem;\n+}\n+\n+.tech-sublist li {\n+  margin-bottom: 0.5rem;\n+  color: #666;\n+}\n+\n+.implementation-section {\n+  margin-bottom: 1.5rem;\n+}\n+\n+.implementation-subtitle {\n+  color: #444;\n+  font-size: 1.2rem;\n+  margin: 1rem 0;\n+  padding-left: 0.5rem;\n+  border-left: 3px solid #007bff;\n+}\n+\n .tech-description {\n   margin-bottom: 1rem;\n   color: #666;\n }\n@@ -212,8 +287,13 @@\n   background: #f8f9fa;\n   border: 1px solid #e9ecef;\n }\n \n+.implementation {\n+  background: #f8f9fa;\n+  border: 1px solid #e9ecef;\n+}\n+\n @media (max-width: 768px) {\n   .tech-grid {\n     grid-template-columns: 1fr;\n   }\n"
+                },
+                {
+                    "date": 1745491812887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -154,9 +154,8 @@\n         <div class=\"tech-card architecture\">\n           <h3 class=\"tech-card-title\">系统架构示意图</h3>\n           <div class=\"tech-card-content\">\n             <div class=\"architecture-diagram\">\n-              <div class=\"diagram-layer\">\n                 <span class=\"layer-name\">区块链层</span>\n                 <span class=\"layer-arrow\">⇆</span>\n               </div>\n               <div class=\"diagram-layer\">\n"
+                },
+                {
+                    "date": 1745491818676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -156,18 +156,12 @@\n           <div class=\"tech-card-content\">\n             <div class=\"architecture-diagram\">\n                 <span class=\"layer-name\">区块链层</span>\n                 <span class=\"layer-arrow\">⇆</span>\n-              </div>\n-              <div class=\"diagram-layer\">\n                 <span class=\"layer-name\">Agent 协议</span>\n                 <span class=\"layer-arrow\">⇆</span>\n-              </div>\n-              <div class=\"diagram-layer\">\n                 <span class=\"layer-name\">AI 模型层</span>\n                 <span class=\"layer-arrow\">⇆</span>\n-              </div>\n-              <div class=\"diagram-layer\">\n                 <span class=\"layer-name\">前端 UI</span>\n               </div>\n             </div>\n           </div>\n"
+                },
+                {
+                    "date": 1745492062832,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -161,9 +161,8 @@\n                 <span class=\"layer-arrow\">⇆</span>\n                 <span class=\"layer-name\">AI 模型层</span>\n                 <span class=\"layer-arrow\">⇆</span>\n                 <span class=\"layer-name\">前端 UI</span>\n-              </div>\n             </div>\n           </div>\n         </div>\n       </div>\n@@ -250,8 +249,9 @@\n \n .architecture-diagram {\n   display: flex;\n   flex-direction: column;\n+  grid-column: span 2; /* 跨两列 */\n   align-items: center;\n   gap: 1rem;\n   padding: 1rem;\n }\n"
+                },
+                {
+                    "date": 1745492095440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -249,9 +249,8 @@\n \n .architecture-diagram {\n   display: flex;\n   flex-direction: column;\n-  grid-column: span 2; /* 跨两列 */\n   align-items: center;\n   gap: 1rem;\n   padding: 1rem;\n }\n"
+                },
+                {
+                    "date": 1745492161260,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -245,9 +245,9 @@\n .tech-description {\n   margin-bottom: 1rem;\n   color: #666;\n }\n-\n+. \n .architecture-diagram {\n   display: flex;\n   flex-direction: column;\n   align-items: center;\n"
+                },
+                {
+                    "date": 1745492166333,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -245,9 +245,9 @@\n .tech-description {\n   margin-bottom: 1rem;\n   color: #666;\n }\n-. \n+.a\n .architecture-diagram {\n   display: flex;\n   flex-direction: column;\n   align-items: center;\n"
+                },
+                {
+                    "date": 1745492171371,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -245,9 +245,11 @@\n .tech-description {\n   margin-bottom: 1rem;\n   color: #666;\n }\n-.a\n+.architecture {\n+  \n+}\n .architecture-diagram {\n   display: flex;\n   flex-direction: column;\n   align-items: center;\n"
+                },
+                {
+                    "date": 1745492180926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -246,9 +246,9 @@\n   margin-bottom: 1rem;\n   color: #666;\n }\n .architecture {\n-  \n+  grid-column: span 2; /* 跨两列 */\n }\n .architecture-diagram {\n   display: flex;\n   flex-direction: column;\n"
+                },
+                {
+                    "date": 1745492246702,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -249,9 +249,9 @@\n .architecture {\n   grid-column: span 2; /* 跨两列 */\n }\n .architecture-diagram {\n-  display: flex;\n+  display: block;\n   flex-direction: column;\n   align-items: center;\n   gap: 1rem;\n   padding: 1rem;\n"
                 }
             ],
             "date": 1745460301674,

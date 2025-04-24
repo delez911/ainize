@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 9,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1745460553401,
@@ -44,6 +44,26 @@
                 {
                     "date": 1745477953876,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -367,9 +367,8 @@\n         \n         <div id=\"sections\">\n             <% sections.forEach(function(section) { %>\n                 <div class=\"section\" id=\"<%= section.id %>\">\n-                    <h2><%= section.title %></h2>\n                     <%- section.content %>\n                 </div>\n             <% }); %>\n         </div>\n"
+                },
+                {
+                    "date": 1745491436874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -340,9 +340,9 @@\n     <header>\n         <div class=\"container\">\n             <div class=\"logo\"><span class=\"carbon\">C</span><span class=\"silicon\">Si</span>.DAO</div>\n             <div class=\"tagline\">AINize 碳硅自主协同网络科技有限责任公司</div>\n-            <p>全面自动化所有工作 · 经济无人化 · 人机共生社会</p>\n+            <p>全面自动化所有工作 · 经济无人化 · 人人智共生组织/企业/社会</p>\n         </div>\n     </header>\n     \n     <div class=\"container\">\n@@ -364,14 +364,12 @@\n                 </div>\n             </div>\n         </div>\n         \n-        <div id=\"sections\">\n-            <% sections.forEach(function(section) { %>\n-                <div class=\"section\" id=\"<%= section.id %>\">\n-                    <%- section.content %>\n-                </div>\n-            <% }); %>\n-        </div>\n+        <% sections.forEach(function(section) { %>\n+            <div class=\"section\" id=\"<%= section.id %>\">\n+                <%- section.content %>\n+            </div>\n+        <% }); %>\n     </div>\n </body>\n </html> \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1745491443015,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -340,9 +340,9 @@\n     <header>\n         <div class=\"container\">\n             <div class=\"logo\"><span class=\"carbon\">C</span><span class=\"silicon\">Si</span>.DAO</div>\n             <div class=\"tagline\">AINize 碳硅自主协同网络科技有限责任公司</div>\n-            <p>全面自动化所有工作 · 经济无人化 · 人人智共生组织/企业/社会</p>\n+            <p>全面自动化所有工作 · 经济无人化 · 人人智共生企业</p>\n         </div>\n     </header>\n     \n     <div class=\"container\">\n"
+                },
+                {
+                    "date": 1745491452258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -349,9 +349,9 @@\n         <div class=\"section\">\n             <h1>商业计划书 — 区块链赋能的第四用工模式</h1>\n             \n             <div class=\"highlight\">\n-                <p><strong>AINize</strong> 继承\"机械化\"的革新内核，但以AI为引擎，推动生产模式从\"人类决策+机械执行\"转向\"算法决策+机器自治\"。这一进程不仅是技术升级，更是文明层级的认知革命，其终局可能是人机共生社会（Human-AI Symbiosis）的诞生。</p>\n+                <p><strong>AINize</strong> 继承\"机械化\"的革新内核，但以AI为引擎，推动生产模式从\"人类决策+机械执行\"转向\"算法决策+机器自治\"。这一进程不仅是技术升级，更是文明层级的认知革命，其终局可能是人智共生社会（Human-AI Symbiosis）的诞生。</p>\n             </div>\n             \n             <div class=\"mission-vision\">\n                 <div class=\"mission\">\n"
+                },
+                {
+                    "date": 1745491741123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -349,9 +349,9 @@\n         <div class=\"section\">\n             <h1>商业计划书 — 区块链赋能的第四用工模式</h1>\n             \n             <div class=\"highlight\">\n-                <p><strong>AINize</strong> 继承\"机械化\"的革新内核，但以AI为引擎，推动生产模式从\"人类决策+机械执行\"转向\"算法决策+机器自治\"。这一进程不仅是技术升级，更是文明层级的认知革命，其终局可能是人智共生社会（Human-AI Symbiosis）的诞生。</p>\n+                <p><strong>AINize</strong> 继承\"机械化\"的革新内核，但以AI为引擎，推动生产模式从\"人类决策+机械执行\"转向\"算法决策+机器自治\"。这一进程不仅是技术升级，更是文明层级的认知革命，其终局可能是人智共生社会（Human-AI Corporation）的诞生。</p>\n             </div>\n             \n             <div class=\"mission-vision\">\n                 <div class=\"mission\">\n"
+                },
+                {
+                    "date": 1745491747034,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -349,9 +349,9 @@\n         <div class=\"section\">\n             <h1>商业计划书 — 区块链赋能的第四用工模式</h1>\n             \n             <div class=\"highlight\">\n-                <p><strong>AINize</strong> 继承\"机械化\"的革新内核，但以AI为引擎，推动生产模式从\"人类决策+机械执行\"转向\"算法决策+机器自治\"。这一进程不仅是技术升级，更是文明层级的认知革命，其终局可能是人智共生社会（Human-AI Corporation）的诞生。</p>\n+                <p><strong>AINize</strong> 继承\"机械化\"的革新内核，但以AI为引擎，推动生产模式从\"人类决策+机械执行\"转向\"算法决策+机器自治\"。这一进程不仅是技术升级，更是文明层级的认知革命，其终局可能是人智共生企业（Human-AI Corporation）的诞生。</p>\n             </div>\n             \n             <div class=\"mission-vision\">\n                 <div class=\"mission\">\n"
                 }
             ],
             "date": 1745460553401,
