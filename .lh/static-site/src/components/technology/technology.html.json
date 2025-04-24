@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 13,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1745460301674,
@@ -60,6 +60,10 @@
                 {
                     "date": 1745492246702,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -249,9 +249,9 @@\n .architecture {\n   grid-column: span 2; /* 跨两列 */\n }\n .architecture-diagram {\n-  display: flex;\n+  display: block;\n   flex-direction: column;\n   align-items: center;\n   gap: 1rem;\n   padding: 1rem;\n"
+                },
+                {
+                    "date": 1745492833387,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n <section id=\"technology\" class=\"section\">\n   <div class=\"section-container\">\n-    <h2 class=\"section-title\">六、技术架构</h2>\n+    <h2 class=\"section-title\">5、技术架构</h2>\n     <div class=\"content\">\n       <div class=\"tech-grid\">\n         <!-- 组件与协议 -->\n         <div class=\"tech-card\">\n"
                 }
             ],
             "date": 1745460301674,
