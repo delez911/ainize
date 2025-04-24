@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/styles/main.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1745461053481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1745461053481,
+            "name": "Commit-0",
+            "content": "@import './base.css';\n@import './header.css';\n@import './components.css';\n@import './dao.css';\n@import './market.css';\n@import './timeline.css'; "
+        }
+    ]
+}

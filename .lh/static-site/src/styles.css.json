@@ -1,0 +1,22 @@
+{
+    "sourceFile": "static-site/src/styles.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1745481204093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1745481400971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,6 @@\n-@tailwind base;\n-@tailwind components;\n-@tailwind utilities;\n+@import \"tailwindcss/preflight\";\n+@import \"tailwindcss/utilities\";\n \n /* Custom styles */\n @layer components {\n   .btn-primary {\n"
+                }
+            ],
+            "date": 1745481204093,
+            "name": "Commit-0",
+            "content": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n/* Custom styles */\n@layer components {\n  .btn-primary {\n    @apply bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors;\n  }\n  \n  .card {\n    @apply bg-white rounded-lg shadow-md p-6;\n  }\n  \n  .section-title {\n    @apply text-3xl font-bold text-center mb-8;\n  }\n} "
+        }
+    ]
+}

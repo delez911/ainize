@@ -1,0 +1,29 @@
+{
+  "name": "csi-dao-static-site",
+  "version": "1.0.0",
+  "description": "CSi.DAO Static Site",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node app.js",
+    "lint": "eslint src/**/*.{js,html}",
+    "style": "postcss src/styles/*.css -d dist/styles",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "vite": "^6.3.1",
+    "vite-plugin-html": "^3.2.0",
+    "eslint": "^8.56.0",
+    "postcss": "^8.4.35",
+    "postcss-cli": "^11.0.0",
+    "postcss-modules": "^6.0.0",
+    "autoprefixer": "^10.4.16",
+    "tailwindcss": "^3.3.5"
+  }
+} 

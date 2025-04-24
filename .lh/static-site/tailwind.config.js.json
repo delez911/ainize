@@ -1,0 +1,22 @@
+{
+    "sourceFile": "static-site/tailwind.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1745481192342,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1745481415147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n /** @type {import('tailwindcss').Config} */\n-module.exports = {\n+export default {\n   content: [\n     \"./src/**/*.{html,js}\",\n     \"./index.html\"\n   ],\n"
+                }
+            ],
+            "date": 1745481192342,
+            "name": "Commit-0",
+            "content": "/** @type {import('tailwindcss').Config} */\nmodule.exports = {\n  content: [\n    \"./src/**/*.{html,js}\",\n    \"./index.html\"\n  ],\n  theme: {\n    extend: {\n      colors: {\n        primary: {\n          50: '#f5f3ff',\n          100: '#ede9fe',\n          200: '#ddd6fe',\n          300: '#c4b5fd',\n          400: '#a78bfa',\n          500: '#8b5cf6',\n          600: '#7c3aed',\n          700: '#6d28d9',\n          800: '#5b21b6',\n          900: '#4c1d95',\n        }\n      }\n    },\n  },\n  plugins: [],\n} "
+        }
+    ]
+}

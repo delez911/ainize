@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/styles/components.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1745461017477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1745461017477,
+            "name": "Commit-0",
+            "content": ".highlight {\n    background-color: rgba(46, 204, 113, 0.1);\n    padding: 20px;\n    border-radius: 5px;\n    border-left: 5px solid var(--secondary-color);\n    margin: 20px 0;\n}\n\n.section {\n    margin-bottom: 40px;\n    background-color: white;\n    padding: 30px;\n    border-radius: 8px;\n    box-shadow: 0 2px 15px rgba(0,0,0,0.1);\n}\n\n.mission-vision {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 20px;\n}\n\n.mission, .vision {\n    flex: 1;\n    min-width: 300px;\n    padding: 20px;\n    border-radius: 8px;\n}\n\n.mission {\n    background-color: rgba(52, 152, 219, 0.1);\n    border-left: 5px solid var(--primary-color);\n}\n\n.vision {\n    background-color: rgba(46, 204, 113, 0.1);\n    border-left: 5px solid var(--secondary-color);\n}\n\n.card-container {\n    display: flex;\n    flex-wrap: wrap;\n    gap: 20px;\n    justify-content: center;\n    margin: 30px 0;\n}\n\n.card {\n    width: 300px;\n    padding: 20px;\n    border-radius: 8px;\n    box-shadow: 0 4px 8px rgba(0,0,0,0.1);\n    background-color: white;\n    transition: transform 0.3s ease;\n}\n\n.card:hover {\n    transform: translateY(-5px);\n}\n\n.card h3 {\n    color: var(--primary-color);\n    margin-top: 0;\n}\n\ntable {\n    width: 100%;\n    border-collapse: collapse;\n    margin: 20px 0;\n}\n\nth, td {\n    border: 1px solid #ddd;\n    padding: 12px;\n    text-align: left;\n}\n\nth {\n    background-color: var(--primary-color);\n    color: white;\n}\n\ntr:nth-child(even) {\n    background-color: #f2f2f2;\n} "
+        }
+    ]
+}

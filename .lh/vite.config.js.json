@@ -1,0 +1,22 @@
+{
+    "sourceFile": "vite.config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1745460819289,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1745468890120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,28 @@\n   }\n }\n \n export default defineConfig({\n+  root: '.',\n+  publicDir: 'static-site',\n+  server: {\n+    port: 3000,\n+    open: true,\n+    watch: {\n+      usePolling: true,\n+      ignored: ['**/node_modules/**', '**/dist/**']\n+    }\n+  },\n+  build: {\n+    outDir: 'dist',\n+    assetsDir: 'assets',\n+    emptyOutDir: true,\n+    rollupOptions: {\n+      input: {\n+        main: path.resolve(__dirname, 'index.html')\n+      }\n+    }\n+  },\n   plugins: [\n     createHtmlPlugin({\n       minify: true,\n       inject: {\n"
+                }
+            ],
+            "date": 1745460819289,
+            "name": "Commit-0",
+            "content": "import { defineConfig } from 'vite';\nimport { createHtmlPlugin } from 'vite-plugin-html';\nimport fs from 'fs';\nimport path from 'path';\n\n// 读取HTML文件内容的函数\nfunction loadHtmlFile(filePath) {\n  try {\n    const fullPath = path.join(process.cwd(), filePath);\n    return fs.readFileSync(fullPath, 'utf8');\n  } catch (error) {\n    console.error(`Error loading HTML file: ${filePath}`, error);\n    return '';\n  }\n}\n\nexport default defineConfig({\n  plugins: [\n    createHtmlPlugin({\n      minify: true,\n      inject: {\n        data: {\n          title: 'AINize 碳硅自主协同网络科技有限责任公司商业计划书',\n          sections: [\n            { id: 'overview', title: '1. 公司概述', content: loadHtmlFile('static-site/src/components/overview/overview.html') },\n            { id: 'market', title: '2. 市场机会', content: loadHtmlFile('static-site/src/components/market/market.html') },\n            { id: 'business', title: '3. 商业模式', content: loadHtmlFile('static-site/src/components/business/business.html') },\n            { id: 'structure', title: '4. 公司结构与利益相关者', content: loadHtmlFile('static-site/src/components/structure/structure.html') },\n            { id: 'technology', title: '5. 技术架构', content: loadHtmlFile('static-site/src/components/technology/technology.html') },\n            { id: 'development', title: '6. 发展规划', content: loadHtmlFile('static-site/src/components/development/development.html') }\n          ]\n        }\n      }\n    })\n  ]\n}); "
+        }
+    ]
+}

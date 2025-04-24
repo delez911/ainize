@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/styles/header.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1745461007263,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1745461157887,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,27 @@\n+header {\n+    background: linear-gradient(135deg, var(--dark-color), var(--primary-color));\n+    color: white;\n+    padding: 40px 0;\n+    text-align: center;\n+    border-bottom: 5px solid var(--secondary-color);\n+}\n+\n+.logo {\n+    font-size: 48px;\n+    font-weight: bold;\n+    margin-bottom: 10px;\n+    letter-spacing: 2px;\n+}\n+\n+.logo span.carbon {\n+    color: var(--light-color);\n+}\n+\n+.logo span.silicon {\n+    color: var(--secondary-color);\n+}\n+\n+.tagline {\n+    font-size: 22px;\n+    font-style: italic;\n+ \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1745461170490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,32 +23,7 @@\n \n .tagline {\n     font-size: 22px;\n     font-style: italic;\n- \n-header {\n-    background: linear-gradient(135deg, var(--dark-color), var(--primary-color));\n-    color: white;\n-    padding: 40px 0;\n-    text-align: center;\n-    border-bottom: 5px solid var(--secondary-color);\n+    margin-bottom: 20px;\n }\n-\n-.logo {\n-    font-size: 48px;\n-    font-weight: bold;\n-    margin-bottom: 10px;\n-    letter-spacing: 2px;\n-}\n-\n-.logo span.carbon {\n-    color: var(--light-color);\n-}\n-\n-.logo span.silicon {\n-    color: var(--secondary-color);\n-}\n-\n-.tagline {\n-    font-size: 22px;\n-    font-style: italic;\n  \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1745461007263,
+            "name": "Commit-0",
+            "content": "header {\n    background: linear-gradient(135deg, var(--dark-color), var(--primary-color));\n    color: white;\n    padding: 40px 0;\n    text-align: center;\n    border-bottom: 5px solid var(--secondary-color);\n}\n\n.logo {\n    font-size: 48px;\n    font-weight: bold;\n    margin-bottom: 10px;\n    letter-spacing: 2px;\n}\n\n.logo span.carbon {\n    color: var(--light-color);\n}\n\n.logo span.silicon {\n    color: var(--secondary-color);\n}\n\n.tagline {\n    font-size: 22px;\n    font-style: italic;\n "
+        }
+    ]
+}

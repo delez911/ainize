@@ -1,0 +1,18 @@
+{
+    "sourceFile": "static-site/src/styles/base.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1745407189295,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1745407189295,
+            "name": "Commit-0",
+            "content": ":root {\n    --primary-color: #3498db;\n    --secondary-color: #2ecc71;\n    --accent-color: #e74c3c;\n    --dark-color: #2c3e50;\n    --light-color: #ecf0f1;\n    --carbon-color: #34495e;\n    --silicon-color: #9b59b6;\n}\n\nbody {\n    font-family: 'Segoe UI', Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n    color: #333;\n    background-color: #f9f9f9;\n    line-height: 1.6;\n}\n\n.container {\n    max-width: 1200px;\n    margin: 0 auto;\n    padding: 20px;\n}\n\nh1, h2, h3, h4 {\n    color: var(--dark-color);\n    margin-top: 30px;\n}\n\nh1 {\n    text-align: center;\n    font-size: 36px;\n    border-bottom: 2px solid var(--primary-color);\n    padding-bottom: 10px;\n    margin-bottom: 30px;\n}\n\nh2 {\n    font-size: 28px;\n    border-left: 5px solid var(--primary-color);\n    padding-left: 15px;\n}\n\nh3 {\n    font-size: 22px;\n    color: var(--primary-color);\n}\n\np {\n    margin-bottom: 20px;\n    text-align: justify;\n}\n\n.section {\n    margin-bottom: 40px;\n    background-color: white;\n    padding: 30px;\n    border-radius: 8px;\n    box-shadow: 0 2px 15px rgba(0,0,0,0.1);\n}\n\n@media screen and (max-width: 768px) {\n    .container {\n        padding: 10px;\n    }\n    \n    h1 {\n        font-size: 28px;\n    }\n    \n    h2 {\n        font-size: 24px;\n    }\n    \n    h3 {\n        font-size: 20px;\n    }\n} "
+        }
+    ]
+}
