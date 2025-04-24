@@ -1,40 +1,301 @@
 <section id="technology" class="section">
   <div class="section-container">
-    <h2 class="section-title">5. 技术架构</h2>
+    <h2 class="section-title">六、技术架构</h2>
     <div class="content">
-      <p>CSi.DAO的技术架构建立在区块链、智能合约和先进AI模型的基础上，实现全流程自动化和透明化。</p>
-      
-      <h3>核心技术组件</h3>
-      <ul>
-        <li><strong>区块链基础层</strong>：提供去中心化、不可篡改的交易记录和智能合约执行环境</li>
-        <li><strong>智能合约系统</strong>：管理公司治理、工作流程和利益分配</li>
-        <li><strong>AI模型层</strong>：多种AI模型协同工作，执行各类白领工作任务</li>
-        <li><strong>Agent通信协议</strong>：基于MCP（Message Communication Protocol）和A2A（Agent-to-Agent）协议实现AI间协作</li>
-        <li><strong>安全与隐私层</strong>：保护客户数据和工作成果的机密性</li>
-        <li><strong>人机交互界面</strong>：便于碳基员工与硅基员工协同工作</li>
-      </ul>
-      
-      <h3>技术创新</h3>
-      <div class="highlight">
-        <ul>
-          <li><strong>跨链协作协议</strong>：支持多链并行处理，实现资源最优配置，提升处理效率300%</li>
-          <li><strong>智能合约升级机制</strong>：支持合约代码的自动迭代与优化，确保系统持续进化</li>
-          <li><strong>隐私计算框架</strong>：确保数据安全与隐私保护，支持多方安全计算</li>
-          <li><strong>AI模型联邦学习</strong>：实现模型能力的持续提升，准确率提升40%</li>
-          <li><strong>量子安全加密</strong>：采用后量子密码学，确保系统安全性</li>
-          <li><strong>边缘计算架构</strong>：实现低延迟、高并发的实时处理能力</li>
-        </ul>
+      <div class="tech-grid">
+        <!-- 组件与协议 -->
+        <div class="tech-card">
+          <h3 class="tech-card-title">组件与协议</h3>
+          <div class="tech-card-content">
+            <ul class="tech-list">
+              <li class="tech-item">
+                <span class="tech-icon">🔗</span>
+                <strong>区块链底层</strong>：以太坊兼容链，提供去中心化账本
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">📜</span>
+                <strong>智能合约</strong>：治理、任务流转、利益分配模块
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🤖</span>
+                <strong>Agent 通信</strong>：MCP（消息协议）与 A2A（Agent 协作）
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🧠</span>
+                <strong>AI 模型层</strong>：LLM、专用 Agent Workflow 引擎
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🔒</span>
+                <strong>安全隐私</strong>：数据加密与零知识证明
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">👥</span>
+                <strong>交互界面</strong>：碳基员工管理与监控面板
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 技术实施路径 -->
+        <div class="tech-card implementation">
+          <h3 class="tech-card-title">技术实施路径</h3>
+          <div class="tech-card-content">
+            <div class="implementation-section">
+              <h4 class="implementation-subtitle">区块链底层</h4>
+              <ul class="tech-list">
+                <li class="tech-item">
+                  <span class="tech-icon">🏗️</span>
+                  <strong>模块化架构</strong>
+                  <ul class="tech-sublist">
+                    <li>共识层：PoSA共识算法</li>
+                    <li>数据层：改进型Merkle树</li>
+                    <li>合约层：WASM虚拟机</li>
+                  </ul>
+                </li>
+                <li class="tech-item">
+                  <span class="tech-icon">⚡</span>
+                  <strong>性能指标</strong>
+                  <ul class="tech-sublist">
+                    <li>TPS ≥ 5000</li>
+                    <li>交易确认时间 &lt; 3秒</li>
+                    <li>兼容EVM/Solidity生态</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="implementation-section">
+              <h4 class="implementation-subtitle">AI中台建设</h4>
+              <ul class="tech-list">
+                <li class="tech-item">
+                  <span class="tech-icon">🧠</span>
+                  <strong>大模型底座</strong>
+                  <ul class="tech-sublist">
+                    <li>集成DeepSeek（推理成本为GPT-4的1/10）</li>
+                    <li>自主训练行业模型</li>
+                  </ul>
+                </li>
+                <li class="tech-item">
+                  <span class="tech-icon">🎨</span>
+                  <strong>多模态引擎</strong>
+                  <ul class="tech-sublist">
+                    <li>支持语音/图像/视频交互</li>
+                    <li>链上存证确保生成内容可追溯</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 硅工Card系统 -->
+        <div class="tech-card">
+          <h3 class="tech-card-title">硅工Card系统</h3>
+          <div class="tech-card-content">
+            <p class="tech-description">CSi.DAO创新开发的硅工Card系统将代替传统的API Key，实现以下功能：</p>
+            <ul class="tech-list">
+              <li class="tech-item">
+                <span class="tech-icon">🆔</span>
+                唯一标识每个硅基员工及其能力范围
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">📊</span>
+                记录工作历史和性能评估
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">💰</span>
+                自动计算并分配价值贡献
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🤝</span>
+                实现硅基员工之间的自主协作
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🔄</span>
+                支持硅基员工的迭代升级
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 技术创新 -->
+        <div class="tech-card highlight">
+          <h3 class="tech-card-title">技术创新</h3>
+          <div class="tech-card-content">
+            <ul class="tech-list">
+              <li class="tech-item">
+                <span class="tech-icon">⛓️</span>
+                <strong>跨链协作协议</strong>：支持多链并行处理，实现资源最优配置
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🔄</span>
+                <strong>智能合约升级机制</strong>：支持合约代码的自动迭代与优化
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🔐</span>
+                <strong>隐私计算框架</strong>：确保数据安全与隐私保护
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🧠</span>
+                <strong>AI模型联邦学习</strong>：实现模型能力的持续提升
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">🔒</span>
+                <strong>量子安全加密</strong>：采用后量子密码学，确保系统安全性
+              </li>
+              <li class="tech-item">
+                <span class="tech-icon">⚡</span>
+                <strong>边缘计算架构</strong>：实现低延迟、高并发的实时处理能力
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 系统架构示意图 -->
+        <div class="tech-card architecture">
+          <h3 class="tech-card-title">系统架构示意图</h3>
+          <div class="tech-card-content">
+            <div class="architecture-diagram">
+              <div class="diagram-layer">
+                <span class="layer-name">区块链层</span>
+                <span class="layer-arrow">⇆</span>
+              </div>
+              <div class="diagram-layer">
+                <span class="layer-name">Agent 协议</span>
+                <span class="layer-arrow">⇆</span>
+              </div>
+              <div class="diagram-layer">
+                <span class="layer-name">AI 模型层</span>
+                <span class="layer-arrow">⇆</span>
+              </div>
+              <div class="diagram-layer">
+                <span class="layer-name">前端 UI</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      <h3>硅工Card系统</h3>
-      <p>CSi.DAO创新开发的硅工Card系统将代替传统的API Key，实现以下功能：</p>
-      <ul>
-        <li>唯一标识每个硅基员工及其能力范围</li>
-        <li>记录工作历史和性能评估</li>
-        <li>自动计算并分配价值贡献</li>
-        <li>实现硅基员工之间的自主协作</li>
-        <li>支持硅基员工的迭代升级</li>
-      </ul>
     </div>
   </div>
-</section> 
+</section>
+
+<style>
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.tech-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-5px);
+}
+
+.tech-card-title {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #eee;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+.tech-icon {
+  margin-right: 1rem;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.tech-sublist {
+  list-style: none;
+  padding-left: 1rem;
+  margin-top: 0.5rem;
+}
+
+.tech-sublist li {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+.implementation-section {
+  margin-bottom: 1.5rem;
+}
+
+.implementation-subtitle {
+  color: #444;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+  padding-left: 0.5rem;
+  border-left: 3px solid #007bff;
+}
+
+.tech-description {
+  margin-bottom: 1rem;
+  color: #666;
+}
+
+.architecture-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.diagram-layer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.layer-name {
+  font-weight: bold;
+  margin: 0 1rem;
+}
+
+.layer-arrow {
+  color: #666;
+  margin: 0 1rem;
+}
+
+.highlight {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+.implementation {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+}
+
+@media (max-width: 768px) {
+  .tech-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style> 

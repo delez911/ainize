@@ -1,0 +1,18 @@
+{
+    "sourceFile": "static-site/src/styles/financial.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1745490106864,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1745490106864,
+            "name": "Commit-0",
+            "content": ".financial-table {\n    width: 100%;\n    border-collapse: collapse;\n    margin: 20px 0;\n    background-color: white;\n    box-shadow: 0 2px 10px rgba(0,0,0,0.1);\n}\n\n.financial-table th,\n.financial-table td {\n    padding: 12px 15px;\n    text-align: left;\n    border-bottom: 1px solid var(--light-color);\n}\n\n.financial-table th {\n    background-color: var(--light-color);\n    font-weight: 600;\n}\n\n.financial-table tr:hover {\n    background-color: rgba(0,0,0,0.02);\n}\n\n.market-size,\n.revenue-projection,\n.funding-plan {\n    margin-bottom: 40px;\n}\n\n.market-size h3,\n.revenue-projection h3,\n.funding-plan h3 {\n    color: var(--dark-color);\n    margin-bottom: 15px;\n}\n\n@media screen and (max-width: 768px) {\n    .financial-table {\n        display: block;\n        overflow-x: auto;\n    }\n} "
+        }
+    ]
+}
