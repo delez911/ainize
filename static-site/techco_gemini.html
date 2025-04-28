@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合作方案建议 (增强版)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自定义一些PPT风格的基础样式 */
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif, "Microsoft YaHei", "微软雅黑"; /* 添加中文字体 */
+            background-color: #f0f4f8; /* 淡蓝色背景 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 1rem; /* 调整边距 */
+        }
+        .slide-container {
+            width: 100%;
+            max-width: 900px; /* 限制最大宽度，类似PPT比例 */
+            aspect-ratio: 16 / 9; /* 保持16:9的比例 */
+            background-color: white;
+            border-radius: 0.5rem; /* 圆角 */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .slide {
+            flex-grow: 1;
+            padding: 1.5rem 2.5rem; /* 调整内边距 */
+            display: none; /* 默认隐藏所有幻灯片 */
+            flex-direction: column;
+            justify-content: center; /* 垂直居中内容 */
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            font-size: 0.85rem; /* 基础字号调整 */
+            line-height: 1.5;
+        }
+        .slide.active {
+            display: flex; /* 显示当前活动的幻灯片 */
+            opacity: 1;
+        }
+        h1 {
+            font-size: 2rem; /* 调整字号 */
+            font-weight: 600; /* 标题字重 */
+            color: #1e3a8a; /* 深蓝色标题 */
+            margin-bottom: 1rem; /* 调整边距 */
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.3rem; /* 调整字号 */
+            font-weight: 600;
+            color: #1e3a8a; /* 深蓝色 */
+            margin-bottom: 0.7rem; /* 调整边距 */
+            border-bottom: 2px solid #dbeafe; /* 浅蓝下划线 */
+            padding-bottom: 0.3rem; /* 调整边距 */
+        }
+        p, ul {
+           /* font-size: 0.85rem; */ /* 继承 slide 的基础字号 */
+           /* line-height: 1.5; */ /* 继承 slide 的行高 */
+            color: #374151; /* 深灰色文字 */
+            margin-bottom: 0.6rem; /* 调整边距 */
+        }
+        ul {
+            list-style-type: disc; /* 使用圆点列表 */
+            padding-left: 1.1rem; /* 调整列表缩进 */
+        }
+        li {
+            margin-bottom: 0.3rem; /* 调整边距 */
+        }
+        .footer {
+            padding: 0.6rem 2.5rem; /* 调整内边距 */
+            background-color: #e0e7ff; /* 页脚背景色 */
+            color: #374151;
+            font-size: 0.75rem; /* 调整字号 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0; /* 防止页脚被压缩 */
+        }
+        .nav-button {
+            background-color: #3b82f6; /* 蓝色按钮 */
+            color: white;
+            padding: 0.3rem 0.7rem; /* 调整按钮大小 */
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .nav-button:hover {
+            background-color: #2563eb; /* 悬停时深蓝色 */
+        }
+        .nav-button:disabled {
+            background-color: #9ca3af; /* 禁用时灰色 */
+            cursor: not-allowed;
+        }
+        strong {
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        /* Diagram specific styles */
+        .diagram-box {
+            border: 1.5px solid #93c5fd; /* 边框颜色 */
+            background-color: #eff6ff; /* 背景色 */
+            padding: 0.4rem 0.8rem; /* 调整内边距 */
+            border-radius: 0.375rem;
+            text-align: center;
+            font-weight: 500;
+            color: #1e3a8a;
+            min-width: 110px; /* 最小宽度 */
+            font-size: 0.8rem; /* 图表内文字 */
+        }
+        .arrow {
+            position: relative;
+            text-align: center;
+            margin: 0.3rem 0; /* 调整边距 */
+            color: #6b7280; /* 箭头文字颜色 */
+            font-size: 0.7rem; /* 箭头文字大小 */
+            line-height: 1.2;
+        }
+        .arrow::before { /* Simple line for arrow body */
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 1.5px; /* 调整线条粗细 */
+            background-color: #9ca3af; /* 箭头线条颜色 */
+            transform: translateX(-50%);
+        }
+        .arrow-down::before {
+            top: 0;
+            bottom: 1.1em; /* Adjust based on text */
+        }
+        .arrow-down::after { /* Simple arrowhead */
+            content: '▼';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            color: #9ca3af;
+        }
+        .arrow-up::before {
+            top: 1.1em; /* Adjust based on text */
+            bottom: 0;
+        }
+         .arrow-up::after { /* Simple arrowhead */
+            content: '▲';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            color: #9ca3af;
+        }
+        .arrow-bi::before { /* Bidirectional arrow line */
+             top: 0;
+             bottom: 0;
+             height: 100%;
+        }
+         .arrow-bi::after { /* Top arrowhead */
+            content: '▲';
+            position: absolute;
+            left: 50%;
+            top: -0.4em; /* Adjust position */
+            transform: translateX(-50%);
+            color: #9ca3af;
+        }
+        .arrow-bi span::after { /* Bottom arrowhead using pseudo-element on span */
+            content: '▼';
+            position: absolute;
+            left: 50%;
+            bottom: -0.4em; /* Adjust position */
+            transform: translateX(-50%);
+            color: #9ca3af;
+        }
+        .arrow-text {
+             position: absolute;
+             left: 50%;
+             transform: translateX(-50%);
+             width: max-content;
+             max-width: 120px; /* 防止文字过长 */
+             background: white; /* 文字背景遮挡箭头线 */
+             padding: 0 0.2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="slide active" id="slide-1">
+            <h1>合作方案建议 (增强版)</h1>
+            <p class="text-center text-lg text-gray-600 mt-4">技术负责人、技术公司 (TechCo) 与 目标公司 (Kuakua) 合作模式探讨</p>
+            <p class="text-center text-sm text-gray-500 mt-10">日期: 2025年4月25日</p>
+        </div>
+
+        <div class="slide" id="slide-2">
+            <h2>核心目标</h2>
+            <ul>
+                <li><strong>技术负责人 (Tech Lead):</strong> 实现灵活合作，控制核心知识产权 (IP)，优化税务结构，获取市场化报酬 (费用+股权)。</li>
+                <li><strong>技术公司 (TechCo):</strong> 作为独立法人实体 (如LLC)，承接业务，持有IP，接收款项与股权，隔离个人风险。</li>
+                <li><strong>目标公司 (Kuakua):</strong> 获取关键技术能力与IP使用权，通过股权激励长期绑定核心人才，优化成本结构。</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-3">
+            <h2>建议结构概览</h2>
+            <div class="flex justify-around items-center mt-2">
+                <div class="flex flex-col items-center">
+                    <div class="diagram-box">技术负责人<br>(Tech Lead)</div>
+                    <div class="arrow arrow-down" style="height: 35px;">
+                        <span class="arrow-text" style="top: 50%; transform: translate(-50%, -50%);">IP转让/独家授权<br>提供服务</span>
+                    </div>
+                    <div class="diagram-box">技术公司<br>(TechCo - LLC)</div>
+                </div>
+
+                <div class="flex flex-col items-center mx-2">
+                     <div class="arrow arrow-bi" style="height: 80px;">
+                         <span class="arrow-text" style="top: 25%; transform: translate(-50%, -50%);">服务 & IP许可 ▶</span>
+                         <span class="arrow-text" style="top: 75%; transform: translate(-50%, -50%);">◀ 服务费 & 股权</span>
+                     </div>
+                </div>
+
+                <div class="flex flex-col items-center">
+                     <div class="diagram-box">目标公司<br>(Kuakua)</div>
+                     <div class="arrow arrow-down" style="height: 35px;">
+                         <span class="arrow-text" style="top: 50%; transform: translate(-50%, -50%);">设立/控制</span>
+                     </div>
+                     <div class="diagram-box">夸夸子公司<br>(服务合同主体)</div>
+                </div>
+            </div>
+             <p class="mt-4 text-sm text-gray-600">
+                <strong>核心关系:</strong> Tech Lead 控 TechCo (LLC)，TechCo 与 Kuakua 子公司签服务/IP许可协议，Kuakua 向 TechCo 授予股权。
+            </p>
+        </div>
+
+        <div class="slide" id="slide-4">
+            <h2>TechCo 设立与运营</h2>
+            <ul>
+                <li><strong>法律形式:</strong> <strong>一人有限责任公司 (LLC)</strong>，技术人100%持股，实现责任隔离。</li>
+                <li><strong>核心功能:</strong> 持有核心 IP，作为技术服务提供方。</li>
+                <li><strong>内部文件:</strong> 完善公司章程，明确 Tech Lead 向 TechCo 的 IP 转让/独家授权。</li>
+                <li><strong>独立性:</strong> 维持独立承包商地位，规范票据往来，规避“变相雇佣”风险。</li>
+                <li><strong>税务考量:</strong> 可能享受小微企业税收优惠；收取的服务费收入需合规纳税。</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-5">
+            <h2>核心协议 1: 技术服务协议</h2>
+            <ul>
+                <li><strong>主体:</strong> TechCo (服务提供方) vs <strong>Kuakua 子公司</strong> (服务接收方)。</li>
+                <li><strong>核心内容:</strong>
+                    <ul>
+                        <li>明确服务范围、技术输出、<strong>顾问和专家服务</strong>、交付标准、工作模式。</li>
+                        <li><strong>费用支付:</strong> Kuakua 子公司向 TechCo 支付服务费 (替代原个人薪资)，约定支付周期和条件。Kuakua 母公司可通过子公司支付降低成本（发票抵扣）。</li>
+                        <li>协议期限、续约、终止条款（与股权解锁挂钩）。</li>
+                        <li>保密义务、责任限制。</li>
+                        <li>强调 TechCo 的<strong>独立承包商</strong>地位。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-6">
+            <h2>核心协议 2: 知识产权(独占)许可协议</h2>
+            <ul>
+                <li><strong>主体:</strong> TechCo (许可方) vs Kuakua 子公司 (被许可方)。</li>
+                <li><strong>核心内容:</strong>
+                    <ul>
+                        <li><strong>许可范围:</strong> TechCo 核心 IP 的<strong>全球独占使用权</strong>，限定于 Kuakua 业务领域。</li>
+                        <li><strong>许可期限:</strong> 与股权绑定周期一致（如股权完全解锁前持续有效）。</li>
+                        <li><strong>关键联动:</strong> 许可的持续有效性与 Kuakua 授予的<strong>股权有效性</strong> (含归属、未失效) 及<strong>上市后可兑现性</strong>强绑定。</li>
+                        <li><strong>IP 归属:</strong> TechCo 保留所有权。合作期内<strong>衍生/改进技术归 TechCo</strong>，Kuakua 享有优先无偿使用权。</li>
+                        <li><strong>违约条款:</strong> 若 TechCo 严重违约 (如泄密)，Kuakua 可终止授权并触发股权回购条款。</li>
+                        <li>终止后的 IP 处理机制（如停止使用、过渡期）。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-7">
+            <h2>核心协议 3: 股权授予协议</h2>
+            <ul>
+                <li><strong>主体:</strong> Kuakua 母公司 (授予方) vs TechCo (接收方)。</li>
+                <li><strong>核心内容:</strong>
+                    <ul>
+                        <li>授予 TechCo 的权益类型 (期权/RSU为主)、数量 (如占期权池一定比例)、行权/授予价格。</li>
+                        <li><strong>归属计划 (Vesting):</strong> <strong>动态解锁</strong>，如分4年解锁，每年25%，绑定 TechCo 持续服务贡献。</li>
+                        <li><strong>关键联动:</strong> 服务协议提前终止（尤其TechCo原因）影响未归属股权；可约定 Kuakua 无故终止服务时的加速归属。</li>
+                        <li><strong>上市兑现条件:</strong> 约定转实股/行权前提（如 IP 无瑕疵通过审查、服务满一定年限、达成关键里程碑）。</li>
+                        <li><strong>退出机制:</strong> 若上市受阻或特定条件触发，约定 Kuakua 按约定估值回购，或 TechCo 保留股权。</li>
+                        <li>需确认 Kuakua 内部章程/期权计划允许向公司实体授予。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+         <div class="slide" id="slide-8">
+            <h2>关键联动与动态调整</h2>
+            <p>协议闭环设计，确保权利义务对等与动态平衡：</p>
+            <ul>
+                <li><strong>服务 ↔ 费用:</strong> 持续提供合格服务是获取服务费的基础。</li>
+                <li><strong>服务 ↔ 股权归属:</strong> 服务年限/贡献是股权逐步解锁的前提。</li>
+                <li><strong>IP 授权 ↔ 股权有效性:</strong> IP 许可的持续有效是股权价值实现 (尤其上市兑现) 的重要保障，反之亦然。</li>
+                <li><strong>里程碑 ↔ 股权加速/增值:</strong> 达成约定目标可触发部分股权加速归属或影响后续轮次估值。</li>
+                <li><strong>违约 ↔ 救济措施:</strong> 清晰界定各方违约情形及对应的中止/终止协议、费用追索、股权处理（回购/没收/加速）、IP 许可终止等后果。</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-9">
+            <h2>主要优势与价值</h2>
+            <ul>
+                <li><strong>Tech Lead / TechCo:</strong>
+                    <ul>
+                        <li>IP 控制权与资产化；责任有效隔离。</li>
+                        <li>稳定服务费收入 + 长期股权增值潜力。</li>
+                        <li>通过 IP-股权联动机制保障核心权益。</li>
+                        <li>潜在税务优化空间 (公司层面 vs 个人层面)。</li>
+                    </ul>
+                </li>
+                <li><strong>Kuakua:</strong>
+                    <ul>
+                        <li>获取稳定、高质量的核心技术支持。</li>
+                        <li>锁定关键人才并深度绑定长期利益。</li>
+                        <li>成本优化（服务费计入成本，发票抵扣）。</li>
+                        <li>相对清晰的合作框架，便于管理与风险控制。</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-10">
+            <h2>风险考量与控制措施</h2>
+            <ul>
+                <li><strong>税务风险:</strong> 严格维持 TechCo 独立运营，避免被认定“变相雇佣”。（需税务专家评估）</li>
+                <li><strong>控制权风险:</strong> 可考虑 AB 股结构或一致行动人协议，保障 Tech Lead 对 TechCo 决策权；TechCo 可推荐子公司管理层人选。</li>
+                <li><strong>IP 风险:</strong>
+                    <ul>
+                       <li>归属谈判：前景 IP 归属 TechCo 需 Kuakua 接受。</li>
+                       <li>侵权风险：为 TechCo 购买知识产权侵权责任险。</li>
+                    </ul>
+                </li>
+                 <li><strong>履约风险:</strong> 依赖详细、严谨的协议条款设计与执行监督。</li>
+                 <li><strong>法律复杂性:</strong> 相比直接雇佣，协议更多、结构更复杂，需专业法律支持。</li>
+                 <li><strong>风险隔离:</strong> 可考虑为重大项目设立独立核算的项目子公司（由主子公司投资）。</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-11">
+            <h2>税务与合规要点</h2>
+             <ul>
+                <li><strong>税务处理:</strong>
+                    <ul>
+                        <li>TechCo 向子公司开具服务费发票（如适用6%增值税，具体税率依服务性质和地区定）。</li>
+                        <li>Kuakua 子公司支付的服务费可作为成本抵扣。</li>
+                        <li>TechCo 获得 Kuakua 股权分红时，可能适用居民企业间股息免税政策（需符合条件）。</li>
+                        <li>TechCo 转让 Kuakua 股权的收益需缴纳企业所得税。</li>
+                    </ul>
+                </li>
+                <li><strong>必备法律文件清单:</strong>
+                    <ul>
+                        <li>《技术服务协议》（TechCo 与 Kuakua 子公司）</li>
+                        <li>《知识产权独占许可协议》（TechCo 与 Kuakua 子公司）</li>
+                        <li>《股权授予协议》（Kuakua 母公司与 TechCo）</li>
+                        <li>《保密协议》（涉及各方）</li>
+                        <li>《竞业禁止协议》（可能要求 Tech Lead 个人签署）</li>
+                        <li>TechCo 内部《股东决议》及《IP转让/授权协议》</li>
+                    </ul>
+                </li>
+                <li><strong>关键条款关注:</strong> IP 审计权、股权回购触发条件、估值方法、争议解决方式（建议优先仲裁）。</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-12">
+            <h2>上市规划衔接</h2>
+             <ul>
+                <li><strong>IP 合规性:</strong>
+                    <ul>
+                        <li>上市前需确保 TechCo 持有 IP 权属清晰、无瑕疵、无潜在争议。</li>
+                        <li>配合完成上市过程中的知识产权尽职调查。</li>
+                        <li>授权协议中包含配合上市合规的承诺条款。</li>
+                    </ul>
+                </li>
+                <li><strong>股权结构清晰化:</strong>
+                    <ul>
+                        <li>上市前，根据上市地监管要求和投行建议，可能需要简化股权结构。</li>
+                        <li>考虑方案：将 TechCo 持有的 Kuakua 股权/期权，通过协议安排平移至 Tech Lead 个人直接持有，或 TechCo 作为持股平台满足特定要求。</li>
+                        <li>提前与券商、律师沟通最优的上市股权架构。</li>
+                    </ul>
+                </li>
+                <li><strong>关联交易规范:</strong> TechCo 与 Kuakua 子公司间的服务协议需符合公允性，避免上市障碍。</li>
+            </ul>
+        </div>
+
+        <div class="slide" id="slide-13">
+            <h2>后续步骤建议</h2>
+            <ul>
+                <li><strong>内部深入讨论:</strong> 技术负责人确认方案细节与风险偏好。</li>
+                <li><strong>寻求专业意见（关键）:</strong>
+                    <ul>
+                        <li>聘请经验丰富的律师团队（精通公司法、合同法、IP、股权、税务），分别代表 Tech Lead/TechCo 和 Kuakua。</li>
+                        <li>咨询税务专家，进行全面的税务规划与合规性评估。</li>
+                    </ul>
+                </li>
+                <li><strong>与 Kuakua 正式沟通:</strong> 介绍详细方案，确认核心条款的可接受性与内部可行性。</li>
+                <li><strong>协议起草与谈判:</strong> 在专业人士协助下，细化并签署所有必要的法律文件。</li>
+                <li><strong>完成 TechCo 注册设立及内部文件签署。</strong></li>
+            </ul>
+            <p class="mt-4 font-semibold text-center text-lg text-blue-800">审慎规划，专业执行，合作共赢！</p>
+        </div>
+
+        <div class="footer">
+            <button id="prevBtn" class="nav-button" disabled>上一页</button>
+            <span id="slideIndicator">第 1 / 13 页</span>
+            <button id="nextBtn" class="nav-button">下一页</button>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for basic slide navigation
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const slideIndicator = document.getElementById('slideIndicator');
+        let currentSlide = 0;
+        const totalSlides = slides.length; // Now 13 slides
+
+        function updateSlideView() {
+            slides.forEach((slide, index) => {
+                slide.style.display = 'none'; // Hide all first
+                slide.classList.remove('active'); // Remove active class
+                if (index === currentSlide) {
+                    // Use setTimeout to allow display:flex to apply before opacity transition
+                    setTimeout(() => {
+                         slide.style.display = 'flex';
+                         // Force reflow/repaint before adding active class for transition
+                         void slide.offsetWidth;
+                         slide.classList.add('active');
+                    }, 0);
+                }
+            });
+            // Update indicator
+            slideIndicator.textContent = `第 ${currentSlide + 1} / ${totalSlides} 页`;
+            // Update button states
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === totalSlides - 1;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSlide > 0) {
+                slides[currentSlide].classList.remove('active'); // Immediately hide current
+                currentSlide--;
+                updateSlideView();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                 slides[currentSlide].classList.remove('active'); // Immediately hide current
+                currentSlide++;
+                updateSlideView();
+            }
+        });
+
+        // Initial view setup
+        // Use setTimeout for initial load as well to ensure transition works
+        setTimeout(updateSlideView, 0);
+    </script>
+</body>
+</html>

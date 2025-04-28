@@ -1,0 +1,32 @@
+[
+  {
+    "id": "overview",
+    "title": "1. 公司概述",
+    "contentFile": "/data/sections/overview.html"
+  },
+  {
+    "id": "market",
+    "title": "2. 市场机会",
+    "contentFile": "/data/sections/market.html"
+  },
+  {
+    "id": "business",
+    "title": "3. 商业模式",
+    "contentFile": "/data/sections/business.html"
+  },
+  {
+    "id": "structure",
+    "title": "4. 公司结构与利益相关者",
+    "contentFile": "/data/sections/structure.html"
+  },
+  {
+    "id": "technology",
+    "title": "5. 技术架构",
+    "contentFile": "/data/sections/technology.html"
+  },
+  {
+    "id": "development",
+    "title": "6. 发展规划",
+    "contentFile": "/data/sections/development.html"
+  }
+]

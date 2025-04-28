@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>技术合伙公司与夸夸合作框架</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    .slide-container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .slide {
+      padding: 40px;
+      min-height: 500px;
+      border-bottom: 1px solid #eee;
+      position: relative;
+    }
+    .slide-number {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 14px;
+      color: #999;
+    }
+    h1 {
+      color: #1a5276;
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #2874a6;
+      font-size: 28px;
+      margin-top: 0;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+    h3 {
+      color: #3498db;
+      font-size: 22px;
+    }
+    .highlight {
+      color: #e74c3c;
+      font-weight: bold;
+    }
+    ul, ol {
+      margin-bottom: 30px;
+    }
+    li {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+    .two-column {
+      display: flex;
+      justify-content: space-between;
+    }
+    .column {
+      width: 48%;
+    }
+    .box {
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .company-diagram {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin: 40px 0;
+    }
+    .company-box {
+      width: 200px;
+      height: 100px;
+      background-color: #3498db;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      font-weight: bold;
+      position: relative;
+    }
+    .tech-co {
+      background-color: #2ecc71;
+    }
+    .arrow {
+      width: 150px;
+      height: 2px;
+      background-color: #333;
+      position: relative;
+    }
+    .arrow:after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid #333;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
+    .arrow-label {
+      position: absolute;
+      top: -25px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+    }
+    .flow-diagram {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .flow-item {
+      display: inline-block;
+      width: 160px;
+      height: 80px;
+      background-color: #3498db;
+      color: white;
+      margin: 0 10px;
+      border-radius: 10px;
+      line-height: 80px;
+      position: relative;
+    }
+    .flow-arrow {
+      display: inline-block;
+      width: 50px;
+      height: 20px;
+      position: relative;
+    }
+    .flow-arrow:after {
+      content: '→';
+      font-size: 24px;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    .comparison-table th, .comparison-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    .comparison-table th {
+      background-color: #f2f2f2;
+    }
+    .comparison-table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      border-left: 2px solid #3498db;
+      margin-left: 20px;
+    }
+    .timeline-item:before {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      left: -9px;
+      background-color: white;
+      border: 2px solid #3498db;
+      border-radius: 50%;
+    }
+    .benefit-box {
+      background-color: #eaf2f8;
+      border-left: 5px solid #3498db;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .risk-box {
+      background-color: #fdedec;
+      border-left: 5px solid #e74c3c;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="slide-container">
+    <!-- 封面页 -->
+    <div class="slide">
+      <h1 style="font-size: 40px; margin-top: 150px;">技术合伙公司与夸夸合作框架</h1>
+      <p class="text-center" style="font-size: 24px; margin-top: 50px;">——保障双方权益的战略合作方案</p>
+      <p class="text-center" style="margin-top: 100px; color: #666;">2025年4月</p>
+      <div class="slide-number">1</div>
+    </div>
+
+    <!-- 合作背景 -->
+    <div class="slide">
+      <h2>合作背景与目标</h2>
+      
+      <div class="box">
+        <h3>背景情况</h3>
+        <ul>
+          <li>技术人计划通过<span class="highlight">一人技术合伙公司</span>与夸夸开展深度合作</li>
+          <li>夸夸拟通过<span class="highlight">成立子公司</span>或<span class="highlight">直接合作</span>引入技术合伙公司</li>
+          <li>技术合伙公司将提供<span class="highlight">技术顾问和专家服务</span></li>
+        </ul>
+      </div>
+      
+      <div class="two-column">
+        <div class="column">
+          <div class="box">
+            <h3>技术方目标</h3>
+            <ul>
+              <li>通过专业实体提供服务</li>
+              <li>保留核心知识产权控制权</li>
+              <li>获得服务费与股权双重回报</li>
+              <li>建立明确的上市兑现机制</li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <h3>夸夸方目标</h3>
+            <ul>
+              <li>获取核心技术能力与支持</li>
+              <li>稳定知识产权授权与使用</li>
+              <li>通过股权激励绑定长期合作</li>
+              <li>优化技术合作的财务结构</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">2</div>
+    </div>
+
+    <!-- 合作架构 -->
+    <div class="slide">
+      <h2>合作架构设计</h2>
+      
+      <div class="company-diagram">
+        <div class="company-box tech-co">技术合伙公司<br>（一人有限公司）</div>
+        <div class="arrow">
+          <div class="arrow-label">技术服务与IP授权</div>
+        </div>
+        <div class="company-box">夸夸公司</div>
+      </div>
+      
+      <div class="two-column">
+        <div class="column">
+          <h3>方案一：直接合作模式</h3>
+          <ul>
+            <li><b>主体关系：</b>技术合伙公司与夸夸直接签订合作协议</li>
+            <li><b>合作内容：</b>提供技术顾问、专家服务与知识产权授权</li>
+            <li><b>优势：</b>结构简单，便于操作与管理</li>
+          </ul>
+        </div>
+        <div class="column">
+          <h3>方案二：子公司合作模式</h3>
+          <ul>
+            <li><b>主体关系：</b>夸夸成立专项子公司，技术合伙公司参与</li>
+            <li><b>合作内容：</b>技术合伙公司持股子公司并提供专家服务</li>
+            <li><b>优势：</b>业务独立性强，风险隔离效果好</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>核心合作要素</h3>
+        <ul>
+          <li><b>服务提供：</b>技术合伙公司提供专业技术顾问与专家服务</li>
+          <li><b>费用支付：</b>夸夸向技术合伙公司支付服务费（替代薪资）</li>
+          <li><b>股权激励：</b>夸夸向技术合伙公司授予股权（替代期权）</li>
+          <li><b>知识产权：</b>技术合伙公司持有IP并授权夸夸使用</li>
+        </ul>
+      </div>
+      <div class="slide-number">3</div>
+    </div>
+
+    <!-- 服务与费用结构 -->
+    <div class="slide">
+      <h2>服务与费用结构</h2>
+      
+      <div class="flow-diagram">
+        <div class="flow-item" style="background-color: #2ecc71;">技术服务提供</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-item">服务费支付</div>
+        <div class="flow-arrow"></div>
+        <div class="flow-item" style="background-color: #e74c3c;">股权激励授予</div>
+      </div>
+      
+      <div class="two-column">
+        <div class="column">
+          <div class="box">
+            <h3>服务内容</h3>
+            <ul>
+              <li><b>技术专家服务：</b>为夸夸开发与维护核心技术系统</li>
+              <li><b>技术顾问服务：</b>提供专业技术方案与规划</li>
+              <li><b>技术管理服务：</b>协助夸夸进行技术团队管理</li>
+              <li><b>知识产权授权：</b>授权夸夸使用相关技术成果</li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <h3>费用结构</h3>
+            <ul>
+              <li><b>基础服务费：</b>定期支付（月/季/年）</li>
+              <li><b>项目成果费：</b>基于项目完成情况支付</li>
+              <li><b>股权激励：</b>授予技术合伙公司相应股权</li>
+              <li><b>股权性质：</b>期权/受限股权/股份认购权</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>合作优势对比</h3>
+        <table class="comparison-table">
+          <tr>
+            <th>对比项</th>
+            <th>传统雇佣关系</th>
+            <th>技术合伙公司合作模式</th>
+          </tr>
+          <tr>
+            <td>费用性质</td>
+            <td>薪资支出（不可抵扣）</td>
+            <td>服务费（可抵扣进项税）</td>
+          </tr>
+          <tr>
+            <td>激励方式</td>
+            <td>个人期权（税负高）</td>
+            <td>公司股权（税务筹划空间大）</td>
+          </tr>
+          <tr>
+            <td>知识产权</td>
+            <td>通常归属企业</td>
+            <td>可由技术合伙公司持有并授权</td>
+          </tr>
+        </table>
+      </div>
+      <div class="slide-number">4</div>
+    </div>
+
+    <!-- 知识产权管理 -->
+    <div class="slide">
+      <h2>知识产权管理框架</h2>
+      
+      <div class="box">
+        <h3>知识产权归属与授权</h3>
+        <ul>
+          <li><b>权属划分：</b>
+            <ul>
+              <li><b>技术合伙公司：</b>持有核心技术知识产权</li>
+              <li><b>夸夸公司：</b>获得授权使用权</li>
+            </ul>
+          </li>
+          <li><b>授权范围：</b>
+            <ul>
+              <li><b>范围限定：</b>在夸夸业务领域内的独占使用权</li>
+              <li><b>地域限制：</b>全球范围或特定地域</li>
+              <li><b>时间期限：</b>与股权有效性挂钩</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="box">
+        <h3>知识产权与股权联动机制</h3>
+        <ul>
+          <li><b>授权条件：</b>知识产权授权的持续有效性与股权的有效性及上市兑现相互绑定</li>
+          <li><b>违约处理：</b>
+            <ul>
+              <li>若夸夸违反股权约定，技术合伙公司可调整或终止知识产权授权</li>
+              <li>若技术合伙公司违反授权约定，夸夸可调整或终止股权安排</li>
+            </ul>
+          </li>
+          <li><b>上市与兑现：</b>上市后，知识产权授权条件应确保股权顺利兑现</li>
+        </ul>
+      </div>
+      
+      <div class="two-column">
+        <div class="column">
+          <div class="box">
+            <h3>技术成果管理</h3>
+            <ul>
+              <li><b>现有技术：</b>明确归属技术合伙公司</li>
+              <li><b>衍生技术：</b>约定研发成果的归属与使用</li>
+              <li><b>改进技术：</b>设定相互受益的授权机制</li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <h3>保密与竞业约束</h3>
+            <ul>
+              <li><b>保密义务：</b>双方对技术细节严格保密</li>
+              <li><b>竞业限制：</b>限制技术合伙公司为竞争对手服务</li>
+              <li><b>排他性约定：</b>在特定领域的排他性合作</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">5</div>
+    </div>
+
+    <!-- 股权激励与退出 -->
+    <div class="slide">
+      <h2>股权激励与退出机制</h2>
+      
+      <div class="box">
+        <h3>股权激励设计</h3>
+        <ul>
+          <li><b>股权性质：</b>期权/受限股权/股份认购权</li>
+          <li><b>股权比例：</b>基于贡献与市场价值确定合理股权比例</li>
+          <li><b>授予主体：</b>夸夸公司向技术合伙公司直接授予</li>
+          <li><b>动态解锁：</b>基于服务年限和业绩目标的分阶段解锁机制</li>
+        </ul>
+      </div>
+      
+      <div class="timeline">
+        <h3>股权解锁时间表（示例）</h3>
+        <div class="timeline-item">
+          <h4>初始授予</h4>
+          <p>签订合作协议后，授予技术合伙公司约定股权，设定解锁条件</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第一年解锁（25%）</h4>
+          <p>合作满1年，完成首批技术交付，解锁25%股权</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第二年解锁（25%）</h4>
+          <p>合作满2年，技术服务持续有效，解锁25%股权</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第三年解锁（25%）</h4>
+          <p>合作满3年，技术持续更新迭代，解锁25%股权</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第四年解锁（25%）</h4>
+          <p>合作满4年，完成全部技术目标，解锁剩余25%股权</p>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>上市兑现机制</h3>
+        <ul>
+          <li><b>上市条件：</b>明确夸夸上市时技术合伙公司股权的兑现条件</li>
+          <li><b>锁定期：</b>上市后的股权锁定期及解禁计划</li>
+          <li><b>退出通道：</b>股权变现的多种可能路径（如二级市场交易、回购等）</li>
+          <li><b>备选方案：</b>若上市计划变更，设置备选退出方案</li>
+        </ul>
+      </div>
+      <div class="slide-number">6</div>
+    </div>
+
+    <!-- 风险管理 -->
+    <div class="slide">
+      <h2>风险管理与权益保障</h2>
+      
+      <div class="two-column">
+        <div class="column">
+          <div class="box">
+            <h3>技术合伙公司权益保障</h3>
+            <div class="benefit-box">
+              <p><b>知识产权控制：</b>保留核心技术所有权，避免资产流失</p>
+            </div>
+            <div class="benefit-box">
+              <p><b>服务与股权双收：</b>获得服务费现金流与股权增值双重回报</p>
+            </div>
+            <div class="benefit-box">
+              <p><b>上市绑定：</b>通过知识产权授权绑定股权兑现，确保利益实现</p>
+            </div>
+            <div class="benefit-box">
+              <p><b>责任隔离：</b>通过公司实体隔离个人责任风险</p>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <div class="box">
+            <h3>夸夸公司权益保障</h3>
+            <div class="benefit-box">
+              <p><b>技术获取：</b>稳定获得核心技术服务与IP授权</p>
+            </div>
+            <div class="benefit-box">
+              <p><b>费用优化：</b>服务费可抵扣，优化财务结构</p>
+            </div>
+            <div class="benefit-box">
+              <p><b>长期绑定：</b>通过股权激励绑定技术合伙公司长期合作</p>
+            </div>
+            <div class="benefit-box">
+              <p><b>上市合规：</b>知识产权授权文件满足上市合规要求</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>潜在风险与应对</h3>
+        <div class="two-column">
+          <div class="column">
+            <div class="risk-box">
+              <p><b>变相雇佣争议：</b>明确独立服务性质，避免被认定为劳动关系</p>
+            </div>
+            <div class="risk-box">
+              <p><b>知识产权争议：</b>明确知识产权归属，避免产权纠纷</p>
+            </div>
+          </div>
+          <div class="column">
+            <div class="risk-box">
+              <p><b>税务合规风险：</b>合理定价，避免被认定为避税架构</p>
+            </div>
+            <div class="risk-box">
+              <p><b>上市障碍：</b>提前规划符合上市要求的协议架构</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-number">7</div>
+    </div>
+
+    <!-- 实施路径 -->
+    <div class="slide">
+      <h2>实施路径与协议体系</h2>
+      
+      <div class="timeline">
+        <h3>实施阶段</h3>
+        <div class="timeline-item">
+          <h4>第一阶段：主体设立</h4>
+          <p>注册技术合伙公司，明确法律形式与治理结构</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第二阶段：协议签署</h4>
+          <p>完成核心协议签署，明确权利义务关系</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第三阶段：业务开展</h4>
+          <p>开始提供技术专家服务，执行协议约定</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第四阶段：定期评估</h4>
+          <p>每年评估合作绩效，调整服务内容与激励</p>
+        </div>
+        <div class="timeline-item">
+          <h4>第五阶段：上市准备</h4>
+          <p>为夸夸上市准备知识产权与股权文件</p>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>核心协议体系</h3>
+        <div class="two-column">
+          <div class="column">
+            <ol>
+              <li><b>技术顾问与专家服务协议：</b>明确服务内容、范围、费用与质量标准</li>
+              <li><b>知识产权授权协议：</b>规定IP授权范围、条件与限制</li>
+              <li><b>股权激励协议：</b>约定股权激励方案、条件与兑现机制</li>
+            </ol>
+          </div>
+          <div class="column">
+            <ol start="4">
+              <li><b>保密与竞业协议：</b>约定双方保密与竞业限制义务</li>
+              <li><b>争议解决协议：</b>设定争议解决机制与流程</li>
+              <li><b>终止与后续安排：</b>规定合作终止条件与后续处理</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      
+      <div class="box">
+        <h3>专业支持团队</h3>
+        <ul>
+          <li>建议聘请专业律师团队起草协议，确保法律合规性</li>
+          <li>咨询财税专家，优化税务筹划方案</li>
+          <li>必要时咨询投行顾问，评估股权价值与上市合规性</li>
+        </ul>
+      </div>
+      <div class="slide-number">8</div>
+    </div>
+
+    <!-- 总结与建议 -->
+    <div class="slide">
+      <h2>总结与建议</h2>
+      
+      <div class="box">
+        <h3>方案价值</h3>
+        <ul>
+          <li><b>双赢合作：</b>技术方获得服务费与股权双重回报，夸夸获得技术专家服务与IP授权</li>
+          <li><b>灵活合作：</b>通过企业间合作取代传统雇佣，提高合作灵活性</li>
+          <li><b>风险隔离：</b>公司实体隔离个人风险，保障双方权益</li>
+          <li><b>利益绑定：</b>通过股权与IP授权互绑，实现长期利益一致</li>
+        </ul>
+      </div>
+      
+      <div class="box">
+        <h3>关键建议</h3>
+        <ul>
+          <li><b>公司设立：</b>选择适合的法律形式，完成技术合伙公司注册</li>
+          <li><b>协议设计：</b>聘请专业法律团队，精心设计核心协议</li>
+          <li><b>服务界定：</b>明确界定技术顾问与专家服务范围，避免认定为雇佣关系</li>
+          <li><b>股权设计：</b>合理设计股权激励方案，确保与知识产权授权有效绑定</li>
+          <li><b>上市规划：</b>提前规划上市路径，确保知识产权与股权安排符合监管要求</li>
+        </ul>
+      </div>
+      
+      <div class="box">
+        <h3>后续行动</h3>
+        <ul>
+          <li>确认合作意向，明确双方核心诉求</li>
+          <li>聘请专业团队，细化合作方案</li>
+          <li>起草核心协议，开展正式谈判</li>
+          <li>完成公司设立，启动实质合作</li>
+        </ul>
+      </div>
+      <div class="slide-number">9</div>
+    </div>
+  </div>
+</body>
+</html>

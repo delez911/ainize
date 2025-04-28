@@ -14,6 +14,36 @@
   - ESLint (v8.56.0)
 - 版本控制：Git
 
+## 十、HTML 入口与样式管理规范
+
+### 1. 多入口 HTML 配置
+- 每个页面入口（如 index.html、techco_claude.html、techco_gemini.html 等）均需在 `vite.config.js` 中单独配置 `createHtmlPlugin`，并继续采用 EJS 语法进行模板渲染。
+- 推荐配置方式示例（伪代码）：
+  ```js
+  createHtmlPlugin({
+    entry: 'src/main.js',
+    template: 'index.html',
+    inject: { data: { title: '首页' } }
+  }),
+  createHtmlPlugin({
+    entry: 'src/claude.js',
+    template: 'techco_claude.html',
+    inject: { data: { title: 'Claude 合作' } }
+  }),
+  // 其他入口同理
+```
+- `index.html`：主页面模板，动态内容由 vite-plugin-html 处理
+- `src/components/`：页面结构化内容，按业务模块拆分
+- `src/styles/`：所有样式文件，按功能细分
+- `utils/htmlLoader.js`：负责加载 HTML 组件
+
+## 四、代码风格
+- 文件命名：全部小写，单词间用连字符（-）
+- 变量命名：JS 使用 camelCase，CSS 使用 kebab-case
+- 组件开发：单一职责原则，每个组件只做一件事
+- 代码规范：严格遵循 ESLint 规则
+- 提交规范：Conventional Commits 格式
+
 ## 项目结构
 ```
 static-site/

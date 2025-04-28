@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 10,
+            "activePatchIndex": 14,
             "patches": [
                 {
                     "date": 1745460634205,
@@ -48,6 +48,22 @@
                 {
                     "date": 1745491226759,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   \"description\": \"CSi.DAO Static Site\",\n   \"main\": \"app.js\",\n   \"type\": \"module\",\n   \"scripts\": {\n-    \"dev\": \"vite \",\n+    \"dev\": \"vite --host 0.0.0.1\",\n     \"build\": \"vite build\",\n     \"preview\": \"vite preview\",\n     \"start\": \"node app.js\",\n     \"lint\": \"eslint src/**/*.{js,html}\",\n@@ -25,34 +25,5 @@\n     \"postcss-modules\": \"^6.0.0\",\n     \"autoprefixer\": \"^10.4.16\",\n     \"tailwindcss\": \"^3.3.5\"\n   }\n-} \n-{\n-  \"name\": \"csi-dao-static-site\",\n-  \"version\": \"1.0.0\",\n-  \"description\": \"CSi.DAO Static Site\",\n-  \"main\": \"app.js\",\n-  \"type\": \"module\",\n-  \"scripts\": {\n-    \"dev\": \"vite\",\n-    \"build\": \"vite build\",\n-    \"preview\": \"vite preview\",\n-    \"start\": \"node app.js\",\n-    \"lint\": \"eslint src/**/*.{js,html}\",\n-    \"style\": \"postcss src/styles/*.css -d dist/styles\",\n-    \"clean\": \"rm -rf dist\"\n-  },\n-  \"dependencies\": {\n-    \"express\": \"^4.18.2\"\n-  },\n-  \"devDependencies\": {\n-    \"vite\": \"^6.3.1\",\n-    \"vite-plugin-html\": \"^3.2.0\",\n-    \"eslint\": \"^8.56.0\",\n-    \"postcss\": \"^8.4.35\",\n-    \"postcss-cli\": \"^11.0.0\",\n-    \"postcss-modules\": \"^6.0.0\",\n-    \"autoprefixer\": \"^10.4.16\",\n-    \"tailwindcss\": \"^3.3.5\"\n-  }\n } \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1745748662896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n   \"description\": \"CSi.DAO Static Site\",\n   \"main\": \"app.js\",\n   \"type\": \"module\",\n   \"scripts\": {\n-    \"dev\": \"vite --host 0.0.0.1\",\n+    \"dev\": \"vite --host 0.0.0.0\",\n     \"build\": \"vite build\",\n     \"preview\": \"vite preview\",\n     \"start\": \"node app.js\",\n     \"lint\": \"eslint src/**/*.{js,html}\",\n"
+                },
+                {
+                    "date": 1745807687434,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,29 +1,22 @@\n {\n   \"name\": \"csi-dao-static-site\",\n   \"version\": \"1.0.0\",\n-  \"description\": \"CSi.DAO Static Site\",\n-  \"main\": \"app.js\",\n+  \"description\": \"CSi.DAO - 碳硅自主协同网络科技静态网站\",\n+  \"main\": \"index.html\",\n   \"type\": \"module\",\n   \"scripts\": {\n     \"dev\": \"vite --host 0.0.0.0\",\n     \"build\": \"vite build\",\n     \"preview\": \"vite preview\",\n-    \"start\": \"node app.js\",\n-    \"lint\": \"eslint src/**/*.{js,html}\",\n-    \"style\": \"postcss src/styles/*.css -d dist/styles\",\n     \"clean\": \"rm -rf dist\"\n   },\n   \"dependencies\": {\n-    \"express\": \"^4.18.2\"\n+    \"vite\": \"^6.3.1\",\n   },\n   \"devDependencies\": {\n-    \"vite\": \"^6.3.1\",\n-    \"vite-plugin-html\": \"^3.2.0\",\n-    \"eslint\": \"^8.56.0\",\n+    \"autoprefixer\": \"^10.4.16\",\n     \"postcss\": \"^8.4.35\",\n-    \"postcss-cli\": \"^11.0.0\",\n-    \"postcss-modules\": \"^6.0.0\",\n\\ No newline at end of file\n-    \"autoprefixer\": \"^10.4.16\",\n-    \"tailwindcss\": \"^3.3.5\"\n+    \"tailwindcss\": \"^3.3.5\",\n+    \"vite-plugin-html\": \"^3.2.2\"\n   }\n-} \n+}\n"
+                },
+                {
+                    "date": 1745807734420,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,22 +1,28 @@\n {\n   \"name\": \"csi-dao-static-site\",\n   \"version\": \"1.0.0\",\n-  \"description\": \"CSi.DAO - 碳硅自主协同网络科技静态网站\",\n-  \"main\": \"index.html\",\n+  \"description\": \"CSi.DAO Static Site\",\n+  \"main\": \"app.js\",\n   \"type\": \"module\",\n   \"scripts\": {\n     \"dev\": \"vite --host 0.0.0.0\",\n     \"build\": \"vite build\",\n     \"preview\": \"vite preview\",\n+    \"start\": \"node app.js\",\n+    \"lint\": \"eslint src/**/*.{js,html}\",\n+    \"style\": \"postcss src/styles/*.css -d dist/styles\",\n     \"clean\": \"rm -rf dist\"\n   },\n   \"dependencies\": {\n     \"vite\": \"^6.3.1\",\n   },\n   \"devDependencies\": {\n     \"autoprefixer\": \"^10.4.16\",\n+    \"eslint\": \"^8.56.0\",\n     \"postcss\": \"^8.4.35\",\n+    \"postcss-cli\": \"^11.0.0\",\n+    \"postcss-modules\": \"^6.0.0\",\n     \"tailwindcss\": \"^3.3.5\",\n-    \"vite-plugin-html\": \"^3.2.2\"\n+    \"vite-plugin-html\": \"^3.2.0\"\n   }\n }\n"
+                },
+                {
+                    "date": 1745807740401,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     \"style\": \"postcss src/styles/*.css -d dist/styles\",\n     \"clean\": \"rm -rf dist\"\n   },\n   \"dependencies\": {\n-    \"vite\": \"^6.3.1\",\n+    \"vite\": \"^6.3.1\"\n   },\n   \"devDependencies\": {\n     \"autoprefixer\": \"^10.4.16\",\n     \"eslint\": \"^8.56.0\",\n"
                 }
             ],
             "date": 1745460634205,
