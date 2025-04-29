@@ -190,6 +190,11 @@
             <h1>合作方案建议 (增强版)</h1>
             <p class="text-center text-lg text-gray-600 mt-4">技术负责人、技术公司 (TechCo) 与 目标公司 (Kuakua) 合作模式探讨</p>
             <p class="text-center text-sm text-gray-500 mt-10">日期: 2025年4月25日</p>
+            
+            <div class="layout-switch" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem;">
+                <a href="#slide" class="layout-btn active">幻灯片模式</a>
+                <a href="#grid" class="layout-btn">平铺模式</a>
+            </div>
         </div>
 
         <div class="slide" id="slide-2">
@@ -244,7 +249,7 @@
         </div>
 
         <div class="slide" id="slide-5">
-            <h2>核心协议 1: 技术服务协议</h2>
+            <h2>建议结构概览</h2>
             <ul>
                 <li><strong>主体:</strong> TechCo (服务提供方) vs <strong>Kuakua 子公司</strong> (服务接收方)。</li>
                 <li><strong>核心内容:</strong>
@@ -335,7 +340,7 @@
                 <li><strong>IP 风险:</strong>
                     <ul>
                        <li>归属谈判：前景 IP 归属 TechCo 需 Kuakua 接受。</li>
-                       <li>侵权风险：为 TechCo 购买知识产权侵权责任险。</li>
+                       <li>侵权风险：为 TechCo 购买知识产权责任的保险。</li>
                     </ul>
                 </li>
                  <li><strong>履约风险:</strong> 依赖详细、严谨的协议条款设计与执行监督。</li>
@@ -408,40 +413,67 @@
         </div>
 
         <div class="footer">
-            <button id="prevBtn" class="nav-button" disabled>上一页</button>
-            <span id="slideIndicator">第 1 / 13 页</span>
+            <button id="prevBtn" class="nav-button">上一页</button>
+            <span id="pageInfo"></span>
             <button id="nextBtn" class="nav-button">下一页</button>
         </div>
     </div>
 
     <script>
-        // JavaScript for basic slide navigation
-        const slides = document.querySelectorAll('.slide');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const slideIndicator = document.getElementById('slideIndicator');
-        let currentSlide = 0;
-        const totalSlides = slides.length; // Now 13 slides
+        let isGridLayout = false;
 
-        function updateSlideView() {
-            slides.forEach((slide, index) => {
-                slide.style.display = 'none'; // Hide all first
-                slide.classList.remove('active'); // Remove active class
-                if (index === currentSlide) {
-                    // Use setTimeout to allow display:flex to apply before opacity transition
-                    setTimeout(() => {
-                         slide.style.display = 'flex';
-                         // Force reflow/repaint before adding active class for transition
-                         void slide.offsetWidth;
-                         slide.classList.add('active');
-                    }, 0);
+        // 新增布局切换功能
+        document.querySelectorAll('.layout-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.body.classList.toggle('grid-layout', this.hash === '#grid');
+                document.querySelectorAll('.layout-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                isGridLayout = this.hash === '#grid';
+                
+                if(isGridLayout) {
+                    document.querySelector('.slide-container').style.display = 'block';
+                    slides.forEach(slide => slide.style.display = 'block');
+                    document.querySelector('.footer').style.display = 'none';
+                } else {
+                    document.querySelector('.slide-container').style.display = 'flex';
+                    document.querySelector('.footer').style.display = 'flex'; // 新增恢复显示
+                    updateSlideView();
                 }
             });
-            // Update indicator
-            slideIndicator.textContent = `第 ${currentSlide + 1} / ${totalSlides} 页`;
-            // Update button states
-            prevBtn.disabled = currentSlide === 0;
-            nextBtn.disabled = currentSlide === totalSlides - 1;
+        });
+
+        // 修改原有导航逻辑
+        document.querySelector('.prev').addEventListener('click', function() {
+            // ... existing code ...
+        });
+
+        document.querySelector('.next').addEventListener('click', function() {
+            // ... existing code ...
+        });
+
+        // 修改初始加载逻辑
+        function updateSlideView() {
+            if(!isGridLayout) {
+                slides.forEach((slide, index) => {
+                    slide.style.display = 'none'; // Hide all first
+                    slide.classList.remove('active'); // Remove active class
+                    if (index === currentSlide) {
+                        // Use setTimeout to allow display:flex to apply before opacity transition
+                        setTimeout(() => {
+                             slide.style.display = 'flex'; // 使用 flex 保持内容居中等样式
+                             // Force reflow/repaint before adding active class for transition
+                             void slide.offsetWidth;
+                             slide.classList.add('active');
+                        }, 0);
+                    }
+                });
+                // Update indicator
+                slideIndicator.textContent = `第 ${currentSlide + 1} / ${totalSlides} 页`;
+                // Update button states
+                prevBtn.disabled = currentSlide === 0;
+                nextBtn.disabled = currentSlide === totalSlides - 1;
+            }
         }
 
         prevBtn.addEventListener('click', () => {
@@ -463,6 +495,189 @@
         // Initial view setup
         // Use setTimeout for initial load as well to ensure transition works
         setTimeout(updateSlideView, 0);
+
+        // 添加URL hash监听
+        window.addEventListener('hashchange', function() {
+            const isGrid = window.location.hash === '#grid';
+            document.body.classList.toggle('grid-layout', isGrid);
+            document.querySelectorAll('.layout-btn').forEach(b => 
+                b.classList.toggle('active', b.hash === window.location.hash)
+            );
+            // 新增显示状态同步
+            document.querySelector('.footer').style.display = isGrid ? 'none' : 'flex';
+        });
+
+        // 初始加载检查hash
+        if(window.location.hash === '#grid') {
+            document.querySelector('[href="#grid"]').click();
+        } else {
+            setTimeout(updateSlideView, 0);
+        }
     </script>
+</body>
+</html>
+<style>
+    .layout-switch .layout-btn {
+        display: inline-block;
+        padding: 0.4rem 1.2rem;
+        border-radius: 999px;
+        background: linear-gradient(90deg, #60a5fa 0%, #2563eb 100%);
+        color: #fff;
+        font-weight: 500;
+        font-size: 1rem;
+        margin: 0 0.2rem;
+        box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        text-decoration: none;
+        border: none;
+        outline: none;
+    }
+    .layout-switch .layout-btn:not(.active) {
+        background: #e0e7ff;
+        color: #2563eb;
+        box-shadow: none;
+    }
+    .layout-switch .layout-btn:hover {
+        background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(59,130,246,0.15);
+    }
+    .layout-switch .layout-btn.active {
+        background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+        color: #fff;
+        box-shadow: 0 4px 16px rgba(59,130,246,0.15);
+    }
+</style>
+</body>
+</html>
+
+<script>
+    const slides = document.querySelectorAll('.slide');
+    const slideContainer = document.querySelector('.slide-container');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageInfo = document.getElementById('pageInfo');
+    const footer = document.querySelector('.footer');
+    const layoutBtns = document.querySelectorAll('.layout-btn');
+    let currentSlideIndex = 0;
+    const totalSlides = slides.length;
+
+    function updatePageInfo() {
+        pageInfo.textContent = `第 ${currentSlideIndex + 1} / ${totalSlides} 页`;
+    }
+
+    function showSlide(index) {
+        // 确保索引在有效范围内
+        if (index < 0) {
+            index = 0;
+        } else if (index >= totalSlides) {
+            index = totalSlides - 1;
+        }
+        
+        // 隐藏所有幻灯片
+        slides.forEach((slide, i) => {
+            slide.classList.remove('active');
+            // 确保在幻灯片模式下，只有当前幻灯片 display: flex
+            if (slideContainer.dataset.layoutMode !== 'grid') {
+                 slide.style.display = 'none'; 
+                 slide.style.opacity = '0';
+            }
+        });
+
+        // 显示目标幻灯片 (仅在幻灯片模式下)
+         if (slideContainer.dataset.layoutMode !== 'grid') {
+            slides[index].style.display = 'flex'; // 使用 flex 保持内容居中等样式
+            slides[index].classList.add('active');
+            // 触发一个小的重绘来确保过渡效果生效
+            // void slides[index].offsetWidth; 
+            slides[index].style.opacity = '1';
+         }
+
+
+        currentSlideIndex = index;
+        updatePageInfo();
+
+        // 更新按钮状态
+        prevBtn.disabled = currentSlideIndex === 0;
+        nextBtn.disabled = currentSlideIndex === totalSlides - 1;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentSlideIndex > 0) {
+            slides[currentSlideIndex].classList.remove('active'); // Immediately hide current
+            currentSlideIndex--;
+            showSlide(currentSlideIndex);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentSlideIndex < totalSlides - 1) {
+             slides[currentSlideIndex].classList.remove('active'); // Immediately hide current
+            currentSlideIndex++;
+            showSlide(currentSlideIndex);
+        }
+    });
+
+    layoutBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const layout = btn.getAttribute('href').substring(1); // 'slide' or 'grid'
+
+            layoutBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            slideContainer.dataset.layoutMode = layout; // 记录当前模式
+
+            if (layout === 'grid') {
+                // --- 平铺模式 ---
+                slideContainer.style.display = 'block'; // 改为 block 以便垂直排列
+                slideContainer.style.aspectRatio = 'auto'; // 取消固定比例
+                slideContainer.style.overflowY = 'visible'; // 允许内容溢出
+                slideContainer.style.height = 'auto'; // 高度自适应内容
+                slideContainer.style.paddingBottom = '2rem'; // 增加底部内边距防止内容被遮挡
+
+                slides.forEach(slide => {
+                    slide.style.display = 'flex'; // 使用 flex 保持内部布局
+                    slide.style.opacity = '1';
+                    slide.style.marginBottom = '1.5rem'; // 增加幻灯片间距
+                    slide.style.height = 'auto'; // 高度自适应
+                    slide.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)'; // 可选：给每个slide加点阴影
+                    slide.classList.remove('active'); // 平铺模式下移除 active 状态
+                });
+                footer.style.display = 'none'; // 隐藏页脚导航
+                document.body.style.alignItems = 'flex-start'; // 页面内容从顶部开始
+                document.documentElement.style.overflowY = 'auto'; // 允许滚动
+                document.body.style.overflowY = 'auto';
+                document.body.style.height = '100%';
+                document.body.style.minHeight = '100%';
+            } else { // --- 幻灯片模式 ---
+                slideContainer.style.display = 'flex'; // 恢复 flex 布局
+                slideContainer.style.aspectRatio = '16 / 9'; // 恢复比例
+                slideContainer.style.overflow = 'hidden'; // 隐藏溢出
+                slideContainer.style.overflowY = 'hidden'; // 禁止垂直滚动
+                slideContainer.style.height = ''; // 移除固定高度
+                slideContainer.style.paddingBottom = ''; // 移除底部内边距
+
+                slides.forEach(slide => {
+                    slide.style.marginBottom = ''; // 移除间距
+                    slide.style.height = ''; // 移除自适应高度
+                    slide.style.boxShadow = ''; // 移除阴影
+                    // showSlide 会处理 display 和 opacity
+                });
+                footer.style.display = 'flex'; // 显示页脚导航
+                document.body.style.alignItems = 'center'; // 恢复垂直居中
+                document.documentElement.style.overflowY = ''; // 恢复正常滚动行为
+                document.body.style.overflowY = '';
+                document.body.style.height = '';
+                showSlide(currentSlideIndex); // 显示当前幻灯片
+            }
+        });
+    });
+
+    // 初始化
+    slideContainer.dataset.layoutMode = 'slide'; // 初始设为幻灯片模式
+    showSlide(currentSlideIndex);
+
+</script>
 </body>
 </html>
