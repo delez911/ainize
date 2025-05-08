@@ -1,25 +1,3 @@
----
-theme: default
-# random image from a curated Unsplash collection by Anthony
-# like this: https://source.unsplash.com/collection/94734566/1920x1080
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
-class: 'text-center'
-# https://sli.dev/custom/highlighters.html
-highlighter: shiki
-# show line numbers in code blocks
-lineNumbers: false
-# some information about the presentation
-info: |
-  ## 数智员工超空间设备设计
-  AI数智员工，作为人类的助手、Copilot、Agent的设备构想。
-# persist drawings in exports and build
-drawings:
-  persist: false
-# page transition
-transition: fade-out
----
-
 # 数智员工超空间设备设计
 
 AI数智员工：人类的助手、Copilot、Agent
