@@ -53,6 +53,32 @@ npm start
 - `npm run lint` - Run ESLint
 - `npm run style` - Process CSS with PostCSS
 - `npm run clean` - Clean build directory
+- sudo pm2 start npm --name aizine -- run dev 
+
+### 安装 Nginx​
+
+```shell
+
+# 6. 生产环境-​使用 Let's Encrypt 免费证书​（替代自签名证书）：
+sudo apt install certbot
+
+sudo certbot  certonly --standalone -d aizine.space -d www.aizine.space
+sudo certbot  certonly --standalone -d aizine.xyz -d www.aizine.xyz
+sudo certbot renew --dry-run
+### see nginx.conf/ Certbot 自动生成 Nginx 配置 sudo certbot --nginx -d aizine.space -d www.aizine.space
+
+sudo apt install nginx
+sudo nano /etc/nginx/sites-available/aizine-space.conf  # 编写配置
+sudo ln -s /etc/nginx/sites-available/aizine-space.conf /etc/nginx/sites-enabled/
+sudo nano /etc/nginx/sites-available/aizine-xyz.conf  # 编写配置
+sudo ln -s /etc/nginx/sites-available/aizine-xyz.conf /etc/nginx/sites-enabled/
+
+sudo nginx -t  # 测试配置文件
+sudo systemctl start nginx  # 重启 Nginx
+# sudo systemctl restart nginx  # 重启 Nginx
+
+
+```
 
 ## Dependencies
 

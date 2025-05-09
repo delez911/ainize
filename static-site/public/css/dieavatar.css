@@ -1,0 +1,203 @@
+/* 基础样式 */
+body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif, "Microsoft YaHei", "微软雅黑";
+    background-color: #121212;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1IiBoZWlnaHQ9IjUiPgo8cmVjdCB3aWR0aD0iNSIgaGVpZ2h0PSI1IiBmaWxsPSIjMTIxMjEyIj48L3JlY3Q+CjxwYXRoIGQ9Ik0wIDVMNSAwWk02IDRMNCA2Wk0tMSAxTDEgLTFaIiBzdHJva2U9IiMyMjIiIHN0cm9rZS13aWR0aD0iMSI+PC9wYXRoPgo8L3N2Zz4=');
+    background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+.slide-container {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.slide {
+    flex-grow: 1;
+    padding: 1.5rem 2.5rem;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+.slide.active {
+    display: flex;
+    opacity: 1;
+}
+h1 {
+    font-size: 7rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+    line-height: 1.1;
+}
+h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    margin-bottom: 0.7rem;
+    border-bottom: 2px solid #dbeafe;
+    padding-bottom: 0.3rem;
+}
+p, ul {
+    color: #374151;
+    margin-bottom: 0.6rem;
+}
+ul {
+    list-style-type: disc;
+    padding-left: 1.1rem;
+}
+li {
+    margin-bottom: 0.3rem;
+}
+.footer {
+    padding: 0.6rem 2.5rem;
+    background-color: #e0e7ff;
+    color: #374151;
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+.nav-button {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.nav-button:hover {
+    background-color: #2563eb;
+}
+.nav-button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+}
+strong {
+    font-weight: 600;
+    color: #1e3a8a;
+}
+/* 布局切换样式 */
+.layout-switch .layout-btn {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #60a5fa 0%, #2563eb 100%);
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+    margin: 0 0.2rem;
+    box-shadow: 0 2px 8px rgba(59,130,246,0.08);
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+.layout-switch .layout-btn:not(.active) {
+    background: #e0e7ff;
+    color: #2563eb;
+    box-shadow: none;
+}
+.layout-switch .layout-btn:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(59,130,246,0.15);
+}
+.layout-switch .layout-btn.active {
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(59,130,246,0.15);
+}
+/* 幻灯片特定样式 */
+.text-center {
+    text-align: center;
+}
+.text-lg {
+    font-size: 1.125rem;
+}
+.text-gray-600 {
+    color: #4b5563;
+}
+.mt-4 {
+    margin-top: 1rem;
+}
+.text-sm {
+    font-size: 0.875rem;
+}
+.text-gray-500 {
+    color: #6b7280;
+}
+.mt-10 {
+    margin-top: 2.5rem;
+}
+/* 网格布局样式 */
+body.grid-layout .slide-container {
+    display: block;
+    height: auto;
+    aspect-ratio: auto;
+}
+body.grid-layout .slide {
+    display: block;
+    opacity: 1;
+    margin-bottom: 2rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+}
+
+/* 图片展示区样式 */
+.image-showcase {
+    margin: 2rem 0;
+}
+
+.main-image {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.full-width-image {
+    max-width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.image-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.grid-image {
+    width: 100%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image-caption {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: #4b5563;
+    text-align: center;
+}

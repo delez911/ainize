@@ -8,6 +8,28 @@ AI数智员工：人类的助手、Copilot、Agent
   </span>
 </div>
 
+<div class="image-showcase">
+  <div class="main-image">
+    <img src="../images/ai-mixed-space.png" alt="AI人混合影子空间" class="full-width-image">
+    <p class="image-caption">AI人混合影子空间 - 屏显AI具身空间、远程AI工作空间、人-AI协同空间</p>
+  </div>
+  
+  <div class="image-grid">
+    <span class="image-item">
+      <img src="../images/office-assistant.jpg" alt="通用办公AI助手" class="grid-image">
+      <p class="image-caption">通用办公AI助手</p>
+    </span>
+    <span class="image-item">
+      <img src="../images/ai-worker.jpg" alt="AI数智员工(通用)" class="grid-image">
+      <p class="image-caption">AI数智员工(通用)</p>
+    </span>
+    <span class="image-item">
+      <img src="../images/medical-assistant.jpg" alt="医疗门诊AI医生助理" class="grid-image">
+      <p class="image-caption">医疗门诊AI医生助理</p>
+    </span>
+  </div>
+</div>
+
 ---
 layout: default
 ---
