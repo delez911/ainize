@@ -20,17 +20,22 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 100%; /* 新增：确保容器高度填满父级 */
+    min-height: 0; /* 新增：防止flex溢出 */
 }
 .slide {
     flex-grow: 1;
     padding: 1.5rem 2.5rem;
     display: none;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* 从顶部开始显示内容 */
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
     font-size: 0.85rem;
     line-height: 1.5;
+    overflow-y: auto; /* 新增：内容超出时可滚动 */
+    height: 100%;     /* 新增：填满容器高度 */
+    min-height: 0;    /* 新增：防止flex溢出 */
 }
 .slide.active {
     display: flex;
@@ -200,4 +205,64 @@ body.grid-layout .slide {
     font-size: 0.85rem;
     color: #4b5563;
     text-align: center;
+}
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+    }
+    .slide-container {
+        aspect-ratio: auto;
+        max-height: 100vh; /* 修改：填满视口高度 */
+        height: 100vh;     /* 新增：填满视口高度 */
+        overflow-y: hidden; /* 防止双重滚动 */
+        min-height: 0;
+    }
+    .slide {
+        padding: 1rem;
+        font-size: 0.8rem;
+        height: calc(100vh - 60px); /* 新增：减去footer高度 */
+        max-height: calc(100vh - 60px);
+        min-height: 0;
+        overflow-y: auto;
+    }
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    h2 {
+        font-size: 1.1rem;
+    }
+    .footer {
+        padding: 0.6rem 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+    }
+    .nav-button {
+        padding: 0.4rem 0.8rem;
+        min-width: 70px;
+    }
+    .slide-container {
+        padding-bottom: 50px;
+    }
+}
+@media (max-width: 480px) {
+    .slide {
+        padding: 0.8rem;
+        font-size: 0.75rem;
+        height: calc(100vh - 50px); /* 新增：适配更小屏幕 */
+        max-height: calc(100vh - 50px);
+    }
+    h1 {
+        font-size: 2rem;
+    }
+    .layout-switch {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .footer {
+        padding: 0.5rem 0.8rem;
+    }
 }

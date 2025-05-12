@@ -1,5 +1,10 @@
 {
   "dependencies": {
     "vite-plugin-html": "^3.2.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6"
   }
 }
