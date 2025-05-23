@@ -1,0 +1,40 @@
+.raas-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  scroll-behavior: smooth;
+}
+
+.section-title {
+  @apply text-3xl font-bold text-center mb-8 text-teal-700;
+}
+
+.card {
+  @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+.icon-placeholder {
+  @apply w-12 h-12 bg-teal-100 text-teal-600 rounded-full flex items-center justify-center mb-4 text-2xl font-bold;
+}
+
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 350px;
+  max-height: 400px;
+}
+
+@media (min-width: 768px) {
+  .chart-container {
+    height: 400px;
+  }
+}
+
+.table-cell {
+  @apply px-4 py-3 border-b border-slate-200;
+}
+
+.table-header {
+  @apply table-cell font-semibold text-slate-700 bg-slate-50 text-left;
+} 

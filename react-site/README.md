@@ -215,6 +215,7 @@ npx shadcn@latest add tabs
 npx shadcn@latest add card  
 npx shadcn@latest add alert
 npx shadcn@latest add badge
+npx shadcn@latest add table
 
 ```
 

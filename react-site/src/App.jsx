@@ -1,42 +1,44 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
-import RAASBusinessModel from './pages/RAASBusinessModel';
+import RAASBusinessModel from './pages/investment-raas/RAASBusinessModel';
+import RaasTechOverview from './pages/investment-raas/RaasTechOverview';
+import RaasInfoInteraction from './pages/investment-raas/RaasInfoInteraction';
 
 const documentTypes = [
   {
     id: 1,
-    title: "投流商业模式规划-RAAS",
+    title: "产品商业整体规划",
     description: "了解项目的整体规划与目标",
     icon: "📚",
     link: "/overview"
   },
   {
     id: 2,
-    title: "商业计划书",
-    description: "详细的项目商业规划与市场分析",
+    title: "技术概览",
+    description: "详细的项目规划与分析",
     icon: "📊",
-    link: "/business-plan"
+    link: "/tech-overview"
   },
   {
     id: 3,
+    title: "交互信息图",
+    description: "技术概览",
+    icon: "⚡",
+    link: "/tech-interaction"
+  },
+  {
+    id: 4,
     title: "技术白皮书",
     description: "核心技术架构与实现方案",
     icon: "⚡",
     link: "/tech-whitepaper"
   },
   {
-    id: 4,
-    title: "开发文档",
-    description: "API文档与开发指南",
-    icon: "💻",
-    link: "/dev-docs"
-  },
-  {
     id: 5,
-    title: "设计规范",
-    description: "UI/UX设计指南与组件库",
-    icon: "🎨",
-    link: "/design-system"
+    title: "技术白皮书",
+    description: "核心技术架构与实现方案",
+    icon: "⚡",
+    link: "/tech-whitepaper"
   },
   {
     id: 6,
@@ -131,7 +133,9 @@ function App() {
           </div>
         } />
         <Route path="/projects/1/overview" element={<RAASBusinessModel />} />
-      </Routes>
+        <Route path="/projects/1/tech-overview" element={<RaasTechOverview />} />
+        <Route path="/projects/1/tech-interaction" element={<RaasInfoInteraction />} />
+        </Routes>
     </Router>
   )
 }
