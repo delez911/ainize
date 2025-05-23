@@ -1,23 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-
-
-// Chosen Palette: Calm Harmony Neutrals
-// Application Structure Plan: The SPA now uses a Tabs-based navigation (styled like shadcn/ui Tabs) to switch between five main sections: "三大浪潮", "平台融合", "核心价值", "未来展望", and "我们的邀请". Each section's content is presented within a main Card (styled like shadcn/ui Card). The "三大浪潮" section further contains three nested, expandable Cards. This structure provides a unified, professional look, promoting clarity and ease of exploration. Content is left-aligned within cards.
-// Visualization & Content Choices:
-// - Navigation: Tabs (TabsList, TabsTrigger). Goal: Navigate. Interaction: Click TabTrigger to show corresponding TabsContent. Method: React state, Tailwind CSS mimicking shadcn/ui.
-// - Sections (TabsContent): Each section is a Card. Goal: Inform. Method: React components, Tailwind.
-// - Three Waves Section: Main Card containing three nested, expandable Cards. Goal: Inform, Compare. Interaction: Click to expand/collapse sub-card details. Method: React components, Tailwind, JS state for expansion.
-// - Platform Integration Section: Main Card with textual explanation and list. Goal: Explain. Method: React component, Tailwind.
-// - Core Values Section: Main Card with three nested Cards for values. Goal: Inform, Emphasize. Method: React components, Tailwind.
-// - Future Outlook Section: Main Card with a list of outlook points, each styled as a small card-like item. Goal: Inform, Inspire. Method: React components, Tailwind.
-// - Invitation Section: Prominent Card for call to action. Goal: Engage. Method: React component, Tailwind.
-// - All textual content is from the source. No external data. No SVG/Mermaid. Emojis used for icons.
-// CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
-
-// --- shadcn/ui inspired components (built with Tailwind CSS) ---
 
 // --- Application Specific Components ---
 
@@ -26,7 +9,7 @@ const ExpandableContentCard = ({ icon, title, summary, details, titleAs = 'h3', 
     return (
         <Card className="bg-gray-50 cursor-pointer hover:shadow-lg transition-shadow" onClick={() => setIsExpanded(!isExpanded)}>
             <CardHeader>
-                <CardTitle as={titleAs} className={titleClassName} icon={icon}>{title}</CardTitle>
+                <CardTitle as={titleAs} className={titleClassName}>{icon && <span className="mr-2">{icon}</span>}{title}</CardTitle>
             </CardHeader>
             <CardContent className="pt-0">
                 <CardDescription>{summary}</CardDescription>
@@ -76,7 +59,7 @@ const WavesSectionContent = () => (
 const IntegrationSectionContent = () => (
     <Card>
         <CardHeader className="text-center">
-            <CardTitle as="h2" icon="🔗" className="text-3xl font-bold text-gray-800 !mb-0 justify-center">平台融合：智能驱动的“结果”交付</CardTitle>
+            <CardTitle as="h2" className="text-3xl font-bold text-gray-800 !mb-0 justify-center"><span className="mr-2">🔗</span>平台融合：智能驱动的“结果”交付</CardTitle>
         </CardHeader>
         <CardContent className="max-w-3xl mx-auto text-left">
             <p className="text-lg leading-relaxed text-gray-700 mb-6">本商业技术书系统阐述了我们的数智投流平台如何深度融合这三大代际趋势，以RaaS模式为核心，通过AI原生智能体架构，为游戏、电商、O2O等领域的广告主高效交付“券”所承载的各类业务“结果”。</p>
@@ -108,7 +91,7 @@ const ValueItemDisplayCard = ({ icon, title, description }) => (
 const ValuesSectionContent = () => (
      <Card className="bg-transparent shadow-none border-none">
         <CardHeader className="text-center">
-             <CardTitle as="h2" icon="🏆" className="text-3xl font-bold text-gray-800 !mb-4 justify-center">核心价值：共创共赢</CardTitle>
+             <CardTitle as="h2" className="text-3xl font-bold text-gray-800 !mb-4 justify-center"><span className="mr-2">🏆</span>核心价值：共创共赢</CardTitle>
             <CardDescription className="text-gray-600 mb-8 max-w-3xl mx-auto">
                 我们坚信，这种融合了RaaS的商业智慧、“券”经济的转化魔力、以及大模型与Agent技术的认知智能的全新广告模式，其核心价值在于为生态各方带来前所未有的机遇。
             </CardDescription>
@@ -153,7 +136,7 @@ const OutlookItemDisplay = ({icon, title, description}) => (
 const OutlookSectionContent = () => (
     <Card className="bg-transparent shadow-none border-none">
         <CardHeader className="text-center">
-            <CardTitle as="h2" icon="🔭" className="text-3xl font-bold text-gray-800 !mb-4 justify-center">未来展望：矢志不渝</CardTitle>
+            <CardTitle as="h2" className="text-3xl font-bold text-gray-800 !mb-4 justify-center"><span className="mr-2">🔭</span>未来展望：矢志不渝</CardTitle>
             <CardDescription className="text-gray-600 mb-8 max-w-3xl mx-auto">
                 展望未来，我们的数智投流平台将矢志不渝地致力于以下方向，引领RaaS模式的持续进化与价值创造。
             </CardDescription>
@@ -188,7 +171,7 @@ const OutlookSectionContent = () => (
 const InvitationSectionContent = () => (
     <Card className="bg-sky-600 text-white text-center">
         <CardHeader>
-            <CardTitle as="h2" icon="🚀" className="text-3xl font-bold !text-white !mb-2 justify-center">RaaS的星辰大海，已然呈现</CardTitle>
+            <CardTitle as="h2" className="text-3xl font-bold !text-white !mb-2 justify-center"><span className="mr-2">🚀</span>RaaS的星辰大海，已然呈现</CardTitle>
         </CardHeader>
         <CardContent>
             <p className="text-lg leading-relaxed mb-8 text-sky-50">它不再仅仅是一种商业模式的迭代，更是一场由AI原生技术驱动的、以“结果”为终极度量的价值创造革命。我们诚挚邀请所有洞察先机、勇于拥抱变革的广告主与生态伙伴，与我们携手，共同驾驭这三大代际浪潮，用智能重塑广告的无限可能，共创一个真正为增长负责、为价值付费的广告新未来！</p>
@@ -212,25 +195,28 @@ const Footer = () => {
 };
 
 const Chapter7Conclusion = () => {
-    const [activeSection, setActiveSection] = useState('waves3');
+    const [activeSection, setActiveSection] = useState('waves3'); // 默认激活的标签页ID
     const mainContentRef = useRef(null);
 
     const navItems = [
-        { id: 'waves3', label: '三大浪潮', Icon: () => <WavesSectionContent /> },
-        { id: 'integration', label: '平台融合', Icon: () => <IntegrationSectionContent /> },
-        { id: 'values', label: '核心价值', Icon: () => <ValuesSectionContent /> },
-        { id: 'outlook', label: '未来展望', Icon: () => <OutlookSectionContent /> },
-        { id: 'invitation', label: '我们的邀请', Icon: () => <InvitationSectionContent /> },
+        { id: 'waves3', label: '三大浪潮', Icon: WavesSectionContent },
+        { id: 'integration', label: '平台融合', Icon: IntegrationSectionContent },
+        { id: 'values', label: '核心价值', Icon: ValuesSectionContent },
+        { id: 'outlook', label: '未来展望', Icon: OutlookSectionContent },
+        { id: 'invitation', label: '我们的邀请', Icon: InvitationSectionContent },
     ];
     
     const handleTabChange = (newSection) => {
         setActiveSection(newSection);
-        // Scroll to top of main content area for better UX on tab change
+        // 切换标签页时滚动到内容区域顶部或主视口顶部（根据需要调整）
         mainContentRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
-         // Or scroll window if tabs are at the very top
-        const sectionElement = document.getElementById(newSection + "-tab-content"); // Assuming TabsContent has an ID
+        
+        // 可选：如果Tabs不在页面最顶部，而是某个可滚动容器内，
+        // 你可能需要更复杂的滚动逻辑来确保TabsList可见，
+        // 但对于主页面内容滚动，下面的逻辑可以帮助滚动到新激活的TabsContent的开始位置
+        const sectionElement = document.getElementById(newSection + "-tab-content");
         if (sectionElement) {
-             const headerOffset = 80; // Approximate height of sticky header
+             const headerOffset = 80; // 假设有一个80px高的固定头部
              const elementPosition = sectionElement.getBoundingClientRect().top;
              const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         
@@ -239,29 +225,17 @@ const Chapter7Conclusion = () => {
                  behavior: "smooth"
             });
         } else {
+             // 如果找不到特定元素，可以回滚到页面顶部
             window.scrollTo({ top: 0, behavior: 'smooth'});
         }
     };
 
-    useEffect(() => {
-        const handlePopState = () => {
-            const hash = window.location.hash.substring(1);
-            if (hash && navItems.find(item => item.id === hash)) {
-                setActiveSection(hash);
-            } else if (navItems.length > 0) {
-                setActiveSection(navItems[0].id);
-                 history.replaceState(null, null, `#${navItems[0].id}`);
-            }
-        };
+    // 移除了之前处理 URL 哈希值和 popstate 事件的 useEffect Hook
 
-        handlePopState(); // Initial load
-        window.addEventListener('popstate', handlePopState);
-        return () => window.removeEventListener('popstate', handlePopState);
-    }, []);
     return (
       <section id="chapter7" className="py-16">
       <div className="container mx-auto px-6 text-center">
-        <h2 className="section-title">第7章：结语：RaaS——重塑广告价值，共创增长未来</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-12 section-title">第7章：结语：RaaS——重塑广告价值，共创增长未来</h2>
           <div className="antialiased bg-gray-100 text-gray-800 min-h-screen flex flex-col">
             <header className="bg-white shadow-sm sticky top-0 z-50">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -273,7 +247,7 @@ const Chapter7Conclusion = () => {
                 </div>
             </header>
             
-            <Tabs defaultValue={activeSection} value={activeSection} onValueChange={handleTabChange} className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <Tabs value={activeSection} onValueChange={handleTabChange} className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 mb-8">
                     {navItems.map(item => (
                         <TabsTrigger key={item.id} value={item.id} className="w-full data-[state=active]:bg-sky-600 data-[state=active]:text-white data-[state=active]:shadow-md rounded-md">
@@ -283,18 +257,20 @@ const Chapter7Conclusion = () => {
                 </TabsList>
 
                 <main ref={mainContentRef}>
-                    {navItems.map(item => (
-                        <TabsContent key={item.id} value={item.id} id={`${item.id}-tab-content`} className="mt-2 outline-none ring-0 focus:ring-0">
-                            <item.Icon />
-                        </TabsContent>
-                    ))}
+                    {navItems.map(item => {
+                        const ContentComponent = item.Icon; // Icon prop actually holds the component
+                        return (
+                            <TabsContent key={item.id} value={item.id} id={`${item.id}-tab-content`} className="mt-2 outline-none ring-0 focus:ring-0">
+                                <ContentComponent />
+                            </TabsContent>
+                        );
+                    })}
                 </main>
             </Tabs>
             <Footer />
         </div>
         </div>
     </section>
-
     );
 };
 

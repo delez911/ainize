@@ -1,4 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'; // 引入Tabs组件
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card'; // 假设 Card 组件也来自 ui
 
 const Chapter5Operation = () => {
   const sectionsData = {
@@ -9,21 +11,15 @@ const Chapter5Operation = () => {
   const sectionKeys = Object.keys(sectionsData);
 
   const [activeSection, setActiveSection] = useState('section5_1');
-  const [openAgentCards, setOpenAgentCards] = useState({}); // To store open state for each card
+  const [openAgentCards, setOpenAgentCards] = useState({});
   const [activeEvolutionTab, setActiveEvolutionTab] = useState('evolution_current');
   const currentYear = new Date().getFullYear();
 
-  const sectionRefs = useRef({}); // To store refs for scrolling
+  const sectionRefs = useRef({}); // 用于存储对各内容区域DOM元素的引用
 
-  // Effect for scrolling to section
-  useEffect(() => {
-    const sectionElement = sectionRefs.current[activeSection];
-    if (sectionElement) {
-      sectionElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, [activeSection]); // Run when activeSection changes
-
-  const showSection = (sectionId) => {
+  // 当 activeSection 改变时，滚动到对应的区域
+  
+  const handleSectionChange = (sectionId) => {
     setActiveSection(sectionId);
   };
 
@@ -38,13 +34,7 @@ const Chapter5Operation = () => {
     setActiveEvolutionTab(tabId);
   };
 
-  // Helper to create refs for each section
-  useEffect(() => {
-    sectionKeys.forEach(key => {
-      sectionRefs.current[key] = document.getElementById(key);
-    });
-  }, [sectionKeys]); // Rerun if sectionKeys change (though they are static here)
-
+  // Agent 卡片配置 (与之前相同)
   const agentCardsConfig = [
     { id: 'strategyAgent', title: '策略Agent (Strategy Agent)', details: [
         '职责：作为投放任务的“总指挥”或“项目经理”，负责深度理解广告主的RaaS目标。结合市场洞察、用户画像和历史投放数据，进行顶层策略规划和任务编排。',
@@ -80,7 +70,6 @@ const Chapter5Operation = () => {
     }
   ];
 
-
   return (
     <section id="chapter5" className="py-16">
       <header className="bg-sky-700 text-white py-6 shadow-md">
@@ -90,28 +79,21 @@ const Chapter5Operation = () => {
         </div>
       </header>
 
-      <nav className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center space-x-2 sm:space-x-4 py-3 overflow-x-auto">
+      {/* 使用 Tabs 组件作为主导航 */}
+      <Tabs value={activeSection} onValueChange={handleSectionChange} className="sticky top-0 z-40 bg-white shadow-sm">
+            <TabsList className="flex justify-center space-x-2 sm:space-x-4 py-3 overflow-x-auto">
             {sectionKeys.map((key) => (
-              <button
+                <TabsTrigger
                 key={key}
-                onClick={() => showSection(key)}
-                className={`nav-button whitespace-nowrap text-sm sm:text-base px-3 py-2 font-medium rounded-md transition-colors duration-150 ${
-                  activeSection === key
-                    ? 'active bg-sky-600 text-white'
-                    : 'text-slate-700 hover:bg-sky-100 hover:text-sky-700'
-                }`}
-              >
+                value={key}
+                className="nav-button whitespace-nowrap text-sm sm:text-base px-3 py-2 font-medium rounded-md transition-colors duration-150 data-[state=active]:bg-sky-600 data-[state=active]:text-white text-slate-700 hover:bg-sky-100 hover:text-sky-700"
+                >
                 {sectionsData[key]}
-              </button>
+                </TabsTrigger>
             ))}
-          </div>
-        </div>
-      </nav>
-
-      <main className="container mx-auto p-4 sm:p-6 lg:p-8">
-        <section id="section5_1" ref={el => sectionRefs.current['section5_1'] = el} className={`content-section ${activeSection === 'section5_1' ? 'block' : 'hidden'}`}>
+            </TabsList>
+        {/* 第一个主要部分 */}
+        <TabsContent value="section5_1" ref={el => sectionRefs.current['section5_1'] = el} id="section5_1" className="outline-none ring-0 focus:ring-0">
             <h2 className="text-2xl font-semibold text-sky-700 mb-6 border-b-2 border-sky-200 pb-2">5.1 RaaS模式与“券”化投流的商业代际领先：从过程付费到结果共创</h2>
             <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
                 <p className="mb-4 text-slate-700 leading-relaxed">传统的广告投放模式，无论是SaaS的工具订阅还是MaaS的资源采买，广告主往往仍需为过程和不确定的效果承担主要风险。本平台所倡导的RaaS模式，则标志着向“为结果付费”的根本性转变，构成了广告商业模式的代际领先。</p>
@@ -210,9 +192,10 @@ const Chapter5Operation = () => {
                 </div>
                 <p className="mt-6 text-slate-700 leading-relaxed">这些技术优势的综合体现，使得本平台在RaaS模式下，能够为广告主提供远超传统方案的价值确定性、成本效益和增长潜力。</p>
             </div>
-        </section>
+        </TabsContent>
 
-        <section id="section5_2" ref={el => sectionRefs.current['section5_2'] = el} className={`content-section ${activeSection === 'section5_2' ? 'block' : 'hidden'}`}>
+        {/* 第二个主要部分 */}
+        <TabsContent value="section5_2" ref={el => sectionRefs.current['section5_2'] = el} id="section5_2" className="outline-none ring-0 focus:ring-0">
             <h2 className="text-2xl font-semibold text-sky-700 mb-6 border-b-2 border-sky-200 pb-2">5.2 AI原生与Agent智能的代际突破：重塑投流全链路</h2>
             <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
                 <p className="mb-6 text-slate-700 leading-relaxed">本平台的核心竞争力不仅在于单点技术的领先，更在于构建了一个<strong>AI原生、以高级Agent智能为核心</strong>的全新投流范式。这代表了从传统“自动化”（如RPA）和简单机器学习到“自主智能（Autonomous Intelligence）”的代际突破，通过大模型赋能和复杂的Agentic Workflow，实现了广告投放全链路的智能化重塑，彻底改写了传统投流的逻辑。</p>
@@ -283,13 +266,15 @@ const Chapter5Operation = () => {
                 </ul>
                 <p className="mt-4 text-slate-700 leading-relaxed">这个由AI原生技术和高级Agent智能驱动的闭环系统，确保了平台的投放决策始终基于最新的数据、最深刻的洞察和最智能的策略，并通过持续的自我学习和进化，不断逼近RaaS“结果”的最大化，真正实现了从“经验驱动”到“AI自主智能驱动”的代际跨越。</p>
             </div>
-        </section>
+        </TabsContent>
 
-        <section id="section5_3" ref={el => sectionRefs.current['section5_3'] = el} className={`content-section ${activeSection === 'section5_3' ? 'block' : 'hidden'}`}>
+        {/* 第三个主要部分 */}
+        <TabsContent value="section5_3" ref={el => sectionRefs.current['section5_3'] = el} id="section5_3" className="outline-none ring-0 focus:ring-0">
             <h2 className="text-2xl font-semibold text-sky-700 mb-6 border-b-2 border-sky-200 pb-2">5.3 可扩展性与未来演进：迈向智能“结果交付网络”</h2>
             <div className="bg-white p-6 rounded-lg shadow-lg">
                 <p className="mb-6 text-slate-700 leading-relaxed">本平台在架构设计之初就充分考虑了系统的可扩展性、兼容性与未来技术的演进方向，以确保能够持续适应快速变化的市场需求、不断涌现的新兴媒体与广告形式，并引领RaaS模式和AI Agent技术在广告领域的未来发展。</p>
                 
+                {/* 内部的演进标签页逻辑保持不变，因为它们是 section5_3 内部的UI */}
                 <div className="mb-6">
                     <div className="flex flex-wrap -mx-2 mb-4 justify-center">
                         <button 
@@ -357,8 +342,8 @@ const Chapter5Operation = () => {
                 </div>
                 <p className="mt-6 text-slate-700 leading-relaxed">通过这样一条清晰且富有雄心的技术演进路径，我们的数智投流平台致力于不仅在当前保持RaaS模式和AI Agent应用的技术领先，更能持续引领行业的创新与发展，最终实现用智能重塑广告价值的宏伟愿景。</p>
             </div>
-        </section>
-      </main>
+        </TabsContent>
+      </Tabs>
 
       <footer className="bg-slate-800 text-slate-300 py-8 mt-12">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
