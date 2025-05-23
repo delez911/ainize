@@ -1,5 +1,11 @@
 import { defineConfig } from 'vite'
 import path from 'path'
+const domains = [
+  'www.ainize.space',
+  'ainize.space',
+  'ainize.xyz',
+  'www.ainize.xyz'
+];
 
 export default defineConfig({
   build: {
@@ -18,6 +24,7 @@ export default defineConfig({
     port: 5173,
     strictPort: false,
     host: true,
+    allowedHosts: domains,
     hmr: {
       overlay: false
     }
