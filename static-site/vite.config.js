@@ -1,10 +1,10 @@
 import { defineConfig } from 'vite'
 import path from 'path'
 const domains = [
-  'www.ainize.space',
-  'ainize.space',
-  'ainize.xyz',
-  'www.ainize.xyz'
+  'www.aizine.space',
+  'aizine.space',
+  'aizine.xyz',
+  'www.aizine.xyz'
 ];
 
 export default defineConfig({
